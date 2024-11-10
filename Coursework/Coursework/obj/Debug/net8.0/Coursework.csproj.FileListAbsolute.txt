@@ -1,0 +1,15 @@
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\Coursework.exe
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\Coursework.deps.json
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\Coursework.runtimeconfig.json
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\Coursework.dll
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\Coursework.pdb
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.AssemblyInfoInputs.cache
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.AssemblyInfo.cs
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.csproj.CoreCompileInputs.cache
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.sourcelink.json
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.dll
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\refint\Coursework.dll
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.pdb
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.genruntimeconfig.cache
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\ref\Coursework.dll
