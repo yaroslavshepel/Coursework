@@ -9,7 +9,7 @@ public static class ConsoleMenu
         return "1. Management of doctors\n" +
                "2. Management of patients\n" +
                "3. Management of the reception schedule\n" +
-               "4. Search" +
+               "4. Search\n" +
                "5. Exit";
     }
 

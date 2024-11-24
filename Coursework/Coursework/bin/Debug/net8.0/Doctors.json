@@ -1,0 +1,24 @@
+{
+  "NumberOfDoctors": 3,
+  "Doctors": 
+  [
+    {
+      "Name": "John",
+      "Surname": "Doe",
+      "Specialization": "Cardiology",
+      "PhoneNumber": "123-456-7890"
+    },
+    {
+      "Name": "Jane",
+      "Surname": "Smith",
+      "Specialization": "Neurology",
+      "PhoneNumber": "987-654-3210"
+    },
+    {
+      "Name": "Emily",
+      "Surname": "Johnson",
+      "Specialization": "Pediatrics",
+      "PhoneNumber": "555-123-4567"
+    }
+  ]
+}

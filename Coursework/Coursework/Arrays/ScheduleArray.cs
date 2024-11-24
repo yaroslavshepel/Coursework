@@ -4,7 +4,7 @@ using Coursework;
 
 public class ScheduleArray
 {
-    private int _numberOfRecords { get; set; }
+    // public static int NumberOfRecords { get; set; }
     private static List<ScheduleClass> _schedule = new List<ScheduleClass>();
 
     public ScheduleArray() { }
@@ -19,5 +19,15 @@ public class ScheduleArray
     {
         _schedule.Remove(record);
         //return this;
+    }
+    
+    public static List<ScheduleClass> GetRecords()
+    {
+        return _schedule;
+    }
+    
+    public static int GetNumberOfRecords()
+    {
+        return _schedule.Count;
     }
 }

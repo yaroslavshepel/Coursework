@@ -4,7 +4,7 @@ using MainClasses;
 public class DoctorsData
 {
     public int NumberOfDoctors { get; set; }
-    public List<DoctorClass> Doctors = new List<DoctorClass>();
+    public List<DoctorClass> Doctors {get; set; }
 }
 
 public class PatientsData

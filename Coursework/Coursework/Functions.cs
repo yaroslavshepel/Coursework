@@ -24,7 +24,7 @@ public class Functions
         return choice;
     }
     
-    protected static void ManagementOfDoctors()
+    protected static async Task ManagementOfDoctors()
     {
         var isStopped = true;
         while (isStopped)
@@ -48,6 +48,7 @@ public class Functions
                     break;
                 case 4:
                     Console.Clear();
+                    await WorkWithFiles.ReadFiles();
                     PrintDoctors();
                     break;
                 case 5:
@@ -70,11 +71,11 @@ public class Functions
             {
                 case 1:
                     Console.Clear();
-                    AddPatient();
+                    // AddPatient();
                     break;
                 case 2:
                     Console.Clear();
-                    DeletePatient();
+                    // DeletePatient();
                     break;
                 case 3:
                     Console.Clear();
@@ -161,8 +162,9 @@ public class Functions
         surname = InputValidator.Validator("Enter the doctor's surname: ", "data");
         specialization = InputValidator.Validator("Enter the doctor's specialization: ", "data");
         phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number");
-        doctor = new DoctorClass(name, surname, specialization, phoneNumber);
-        DoctorsArray.AddDoctor(doctor);
+        //doctor = new DoctorClass(name, surname, specialization, phoneNumber);
+        //DoctorsArray.AddDoctor(doctor);
+        DoctorsArray.AddDoctor(name, surname, specialization, phoneNumber);
         Console.WriteLine("Doctor added successfully.");
     }
     
