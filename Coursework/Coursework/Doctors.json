@@ -1,2 +1,24 @@
 {
+  "NumberOfDoctors": 3,
+  "Doctors": 
+  [
+    {
+      "_name": "John",
+      "_surname": "Doe",
+      "_specialization": "Cardiology",
+      "_phoneNumber": "123-456-7890"
+    },
+    {
+      "_name": "Jane",
+      "_surname": "Smith",
+      "_specialization": "Neurology",
+      "_phoneNumber": "987-654-3210"
+    },
+    {
+      "_name": "Emily",
+      "_surname": "Johnson",
+      "_specialization": "Pediatrics",
+      "_phoneNumber": "555-123-4567"
+    }
+  ]
 }

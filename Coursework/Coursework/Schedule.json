@@ -1,0 +1,60 @@
+{
+  "NumberOfRecords": 3,
+  "Records":
+  [
+    {
+      "Doctor": {
+        "_name": "John",
+        "_surname": "Doe",
+        "_specialization": "Cardiology",
+        "_phoneNumber": "123-456-7890"
+      },
+      "Patient": {
+        "_name": "Alice",
+        "_surname": "Brown",
+        "_address": "123 Main St",
+        "_phoneNumber": "111-222-3333",
+        "_email": "alice.brown@example.com",
+        "_medicalRecord": "Record1"
+      },
+      "Date": "2023-11-01T10:00:00",
+      "Time": "10:00"
+    },
+    {
+      "Doctor": {
+        "_name": "Jane",
+        "_surname": "Smith",
+        "_specialization": "Neurology",
+        "_phoneNumber": "987-654-3210"
+      },
+      "Patient": {
+        "_name": "Bob",
+        "_surname": "White",
+        "_address": "456 Elm St",
+        "_phoneNumber": "444-555-6666",
+        "_email": "bob.white@example.com",
+        "_medicalRecord": "Record2"
+      },
+      "Date": "2023-11-02T11:00:00",
+      "Time": "11:00"
+    },
+    {
+      "Doctor": {
+        "_name": "Emily",
+        "_surname": "Johnson",
+        "_specialization": "Pediatrics",
+        "_phoneNumber": "555-123-4567"
+      },
+      "Patient": {
+        "_name": "Charlie",
+        "_surname": "Black",
+        "_address": "789 Oak St",
+        "_phoneNumber": "777-888-9999",
+        "_email": "charlie.black@example.com",
+        "_medicalRecord": "Record3"
+      },
+      "Date": "2023-11-03T12:00:00",
+      "Time": "12:00"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 ﻿namespace Coursework;
+using MainClasses;
+using Arrays;
 
 public class Functions
 {
@@ -76,7 +78,7 @@ public class Functions
                     break;
                 case 3:
                     Console.Clear();
-                    ElectronicMedicalRecord();
+                    // ElectronicMedicalRecord();
                     break;
                 case 4:
                     Console.Clear();
@@ -98,19 +100,19 @@ public class Functions
             {
                 case 1:
                     Console.Clear();
-                    AddReceptionSchedule();
+                    // AddReceptionSchedule();
                     break;
                 case 2:
                     Console.Clear();
-                    DeleteReceptionSchedule();
+                    // DeleteReceptionSchedule();
                     break;
                 case 3:
                     Console.Clear();
-                    EditReceptionSchedule();
+                    // EditReceptionSchedule();
                     break;
                 case 4:
                     Console.Clear();
-                    MakeAppointment();
+                    // MakeAppointment();
                     break;
                 case 5:
                     Console.Clear();
@@ -132,21 +134,73 @@ public class Functions
             {
                 case 1:
                     Console.Clear();
-                    SearchPatient();
+                    // SearchPatient();
                     break;
                 case 2:
                     Console.Clear();
-                    SearchDoctor();
+                    // SearchDoctor();
                     break;
                 case 3:
                     Console.Clear();
-                    GetDoctorSchedule();
+                    // GetDoctorSchedule();
                     break;
                 case 4:
                     Console.Clear();
                     isStopped = false;
                     break;
             }
+        }
+    }
+    
+    private static string name, surname, specialization, phoneNumber;
+    private static DoctorClass doctor;
+    
+    private static void AddDoctor()
+    {
+        name = InputValidator.Validator("Enter the doctor's name: ", "data");
+        surname = InputValidator.Validator("Enter the doctor's surname: ", "data");
+        specialization = InputValidator.Validator("Enter the doctor's specialization: ", "data");
+        phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number");
+        doctor = new DoctorClass(name, surname, specialization, phoneNumber);
+        DoctorsArray.AddDoctor(doctor);
+        Console.WriteLine("Doctor added successfully.");
+    }
+    
+    private static void EditDoctor()
+    {
+        var doctors = DoctorsArray.GetDoctors();
+        if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
+        name = InputValidator.Validator("Enter name of doctor to edit: ", "data");
+        surname = InputValidator.Validator("Enter surname of doctor to edit: ", "data");
+        doctor = doctors.Find(d => d.Name == name && d.Surname == surname);
+        if (doctor == null) { Console.WriteLine("Doctor not found."); return; }
+        var newName = InputValidator.Validator("Enter the new name: ", "data");
+        var newSurname = InputValidator.Validator("Enter the new surname: ", "data");
+        var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "data");
+        var newPhoneNumber = InputValidator.Validator("Enter the new phone number: ", "phone number");
+        DoctorsArray.EditDoctor(doctor, newName, newSurname, newSpecialization, newPhoneNumber);
+        Console.WriteLine("Doctor edited successfully.");
+    }
+    
+    private static void DeleteDoctor()
+    {
+        var doctors = DoctorsArray.GetDoctors();
+        if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
+        name = InputValidator.Validator("Enter name of doctor to delete: ", "data");
+        surname = InputValidator.Validator("Enter surname of doctor to delete: ", "data");
+        doctor = doctors.Find(d => d.Name == name && d.Surname == surname);
+        if (doctor == null) { Console.WriteLine("Doctor not found."); return; }
+        DoctorsArray.RemoveDoctor(doctor);
+        Console.WriteLine("Doctor deleted successfully.");
+    }
+    
+    private static void PrintDoctors()
+    {
+        var doctors = DoctorsArray.GetDoctors();
+        if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
+        foreach (var d in doctors)
+        {
+            Console.WriteLine($"Name: {d.Name}, Surname: {d.Surname}, Specialization: {d.Specialization}, Phone Number: {d.PhoneNumber}");
         }
     }
 }

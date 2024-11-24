@@ -2,27 +2,27 @@
 
 public class DoctorClass
 {
-    private string _name {get; set;}
-    private string _surname {get; set;}
-    private string _specialization {get; set;}
-    private string _phoneNumber {get; set;}
+    public string Name { get; set; }
+    public string Surname { get; set; }
+    public string Specialization { get; set; }
+    public string PhoneNumber { get; set; }
     
     DoctorClass() { }
     
     public DoctorClass(string name, string surname, string specialization, string phoneNumber)
     {
-        _name = name;
-        _surname = surname;
-        _specialization = specialization;
-        _phoneNumber = phoneNumber;
+        Name = name;
+        Surname = surname;
+        Specialization = specialization;
+        PhoneNumber = phoneNumber;
     }
     
-    public DoctorClass EditDoctor(string name, string surname, string specialization, string phoneNumber)
-    {
-        _name = name;
-        _surname = surname;
-        _specialization = specialization;
-        _phoneNumber = phoneNumber;
-        return this;
-    }
+    // public static DoctorClass EditDoctor(string name, string surname, string specialization, string phoneNumber)
+    // {
+    //     Name = name;
+    //     Surname = surname;
+    //     Specialization = specialization;
+    //     PhoneNumber = phoneNumber;
+    //     return new DoctorClass(name, surname, specialization, phoneNumber);
+    // }
 }

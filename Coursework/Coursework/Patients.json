@@ -1,0 +1,30 @@
+{
+  "NumberOfPatients": 3,
+  "Patients": 
+  [
+    {
+      "_name": "Alice",
+      "_surname": "Brown",
+      "_address": "123 Main St",
+      "_phoneNumber": "111-222-3333",
+      "_email": "alice.brown@example.com",
+      "_medicalRecord": "Record1"
+    },
+    {
+      "_name": "Bob",
+      "_surname": "White",
+      "_address": "456 Elm St",
+      "_phoneNumber": "444-555-6666",
+      "_email": "bob.white@example.com",
+      "_medicalRecord": "Record2"
+    },
+    {
+      "_name": "Charlie",
+      "_surname": "Black",
+      "_address": "789 Oak St",
+      "_phoneNumber": "777-888-9999",
+      "_email": "charlie.black@example.com",
+      "_medicalRecord": "Record3"
+    }
+  ]
+}

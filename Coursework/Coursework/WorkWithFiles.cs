@@ -29,12 +29,12 @@ public class WorkWithFiles
                 }
             }
             
-            await using (FileStream fs = new("./Appointments.json", FileMode.OpenOrCreate))
+            await using (FileStream fs = new("./Schedule.json", FileMode.OpenOrCreate))
             {
-                var loadedAppointments = await JsonSerializer.DeserializeAsync<AppointmentsData>(fs, options);
-                for (int i = 0; i < loadedAppointments.Appointments.Count; i++)
+                var loadedSchedule = await JsonSerializer.DeserializeAsync<ScheduleData>(fs, options);
+                for (int i = 0; i < loadedSchedule.Records.Count; i++)
                 {
-                    AppointmentsArray.AddAppointment(loadedAppointments.Appointments[i]);
+                    ScheduleArray.AddRecord(loadedSchedule.Records[i]);
                 }
             }
         } 

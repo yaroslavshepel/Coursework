@@ -13,8 +13,8 @@ public class PatientsData
     public List<PatientClass> Patients = new List<PatientClass>();
 }
 
-public class AppointmentsData
+public class ScheduleData
 {
-    public int NumberOfAppointments { get; set; }
-    public List<AppointmentClass> Appointments = new List<AppointmentClass>();
+    public int NumberOfRecords { get; set; }
+    public List<ScheduleClass> Records = new List<ScheduleClass>();
 }

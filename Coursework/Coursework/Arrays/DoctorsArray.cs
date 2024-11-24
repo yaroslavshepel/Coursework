@@ -5,7 +5,7 @@ using Coursework;
 public class DoctorsArray
 {
     private int _numberOfDoctors { get; set; }
-    private static List<DoctorClass> _doctors = new List<DoctorClass>();
+    private static readonly List<DoctorClass> _doctors = new List<DoctorClass>();
 
     public DoctorsArray() { }
 
@@ -21,13 +21,17 @@ public class DoctorsArray
         //return this;
     }
 
-    public DoctorsArray EditDoctor(DoctorClass doctor, string name, string surname, string specialization, string phoneNumber)
+    public static void EditDoctor(DoctorClass doctor, string name, string surname, string specialization, string phoneNumber)
     {
-        doctor.EditDoctor(name, surname, specialization, phoneNumber);
-        return this;
+        //doctor.EditDoctor(name, surname, specialization, phoneNumber);
+        doctor.Name = name;
+        doctor.Surname = surname;
+        doctor.Specialization = specialization;
+        doctor.PhoneNumber = phoneNumber;
+        
     }
 
-    public List<DoctorClass> GetDoctors()
+    public static List<DoctorClass> GetDoctors()
     {
         return _doctors;
     }
