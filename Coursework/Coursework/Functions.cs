@@ -1,13 +1,14 @@
 ﻿namespace Coursework;
-using MainClasses;
-using Arrays;
+// using MainClasses;
+// using Arrays;
+using BusinessLogic;
 
 public class Functions
 {
     
     protected static int ChoiceCheck()
     {
-        var choice = -1;
+        int choice;
         try
         {
             choice = Convert.ToInt32(Console.ReadLine());
@@ -152,19 +153,22 @@ public class Functions
             }
         }
     }
-    
-    private static string name, surname, specialization, phoneNumber;
-    private static DoctorClass doctor;
+
+    private static string _name = "";
+    private static string _surname = "";
+    private static string _specialization = "";
+    private static string _phoneNumber = "";
+    //private static DoctorClass _doctor;
     
     private static void AddDoctor()
     {
-        name = InputValidator.Validator("Enter the doctor's name: ", "data");
-        surname = InputValidator.Validator("Enter the doctor's surname: ", "data");
-        specialization = InputValidator.Validator("Enter the doctor's specialization: ", "data");
-        phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number");
+        _name = InputValidator.Validator("Enter the doctor's name: ", "data");
+        _surname = InputValidator.Validator("Enter the doctor's surname: ", "data");
+        _specialization = InputValidator.Validator("Enter the doctor's specialization: ", "data");
+        _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number");
         //doctor = new DoctorClass(name, surname, specialization, phoneNumber);
         //DoctorsArray.AddDoctor(doctor);
-        DoctorsArray.AddDoctor(name, surname, specialization, phoneNumber);
+        DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber);
         Console.WriteLine("Doctor added successfully.");
     }
     
@@ -172,10 +176,12 @@ public class Functions
     {
         var doctors = DoctorsArray.GetDoctors();
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
-        name = InputValidator.Validator("Enter name of doctor to edit: ", "data");
-        surname = InputValidator.Validator("Enter surname of doctor to edit: ", "data");
-        doctor = doctors.Find(d => d.Name == name && d.Surname == surname);
-        if (doctor == null) { Console.WriteLine("Doctor not found."); return; }
+        _name = InputValidator.Validator("Enter name of doctor to edit: ", "data");
+        _surname = InputValidator.Validator("Enter surname of doctor to edit: ", "data");
+        DoctorClass doctor = doctors.Find(d => d.Name == _name && d.Surname == _surname)
+        ?? throw new ArgumentNullException(nameof(doctor), "Doctor not found.");
+        //?? Console.WriteLine(CustomException("Doctor not found."));
+        // if (_doctor == null) { Console.WriteLine("Doctor not found."); return; }
         var newName = InputValidator.Validator("Enter the new name: ", "data");
         var newSurname = InputValidator.Validator("Enter the new surname: ", "data");
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "data");
@@ -188,10 +194,10 @@ public class Functions
     {
         var doctors = DoctorsArray.GetDoctors();
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
-        name = InputValidator.Validator("Enter name of doctor to delete: ", "data");
-        surname = InputValidator.Validator("Enter surname of doctor to delete: ", "data");
-        doctor = doctors.Find(d => d.Name == name && d.Surname == surname);
-        if (doctor == null) { Console.WriteLine("Doctor not found."); return; }
+        _name = InputValidator.Validator("Enter name of doctor to delete: ", "data");
+        _surname = InputValidator.Validator("Enter surname of doctor to delete: ", "data");
+        DoctorClass doctor = doctors.Find(d => d.Name == _name && d.Surname == _surname)
+        ?? throw new ArgumentNullException(nameof(doctor), "Doctor not found.");
         DoctorsArray.RemoveDoctor(doctor);
         Console.WriteLine("Doctor deleted successfully.");
     }

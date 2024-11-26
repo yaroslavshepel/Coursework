@@ -1,4 +1,4 @@
-﻿namespace Coursework.MainClasses;
+﻿namespace BusinessLogic;
 
 public class DoctorClass
 {
@@ -7,7 +7,7 @@ public class DoctorClass
     public string Specialization { get; set; }
     public string PhoneNumber { get; set; }
     
-    public DoctorClass() { }
+    //public DoctorClass() { }
     
     public DoctorClass(string name, string surname, string specialization, string phoneNumber)
     {

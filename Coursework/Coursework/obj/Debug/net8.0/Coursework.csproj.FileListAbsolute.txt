@@ -13,3 +13,7 @@ C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.
 C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.pdb
 C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.genruntimeconfig.cache
 C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\ref\Coursework.dll
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\BusinessLogic.dll
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\bin\Debug\net8.0\BusinessLogic.pdb
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.csproj.AssemblyReference.cache
+C:\Users\arosl\Documents\GitHub\Coursework\Coursework\Coursework\obj\Debug\net8.0\Coursework.csproj.Up2Date

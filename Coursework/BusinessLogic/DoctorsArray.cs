@@ -1,11 +1,11 @@
-﻿namespace Coursework.Arrays;
-using MainClasses;
-using Coursework;
+﻿namespace BusinessLogic;
+//using MainClasses;
+//using Coursework;
 
 public class DoctorsArray
 {
-    private static int _numberOfDoctors { get; set; }
-    public static List<DoctorClass> _doctors = new List<DoctorClass>();
+    private static int _numberOfDoctors;
+    public static readonly List<DoctorClass> Doctors = new List<DoctorClass>();
 
     //public DoctorsArray() { }
 
@@ -21,7 +21,7 @@ public class DoctorsArray
 
     public static void RemoveDoctor(DoctorClass doctor)
     {
-        _doctors.Remove(doctor);
+        Doctors.Remove(doctor);
     }
 
     public static void EditDoctor(DoctorClass doctor, string name, string surname, string specialization, string phoneNumber)
@@ -34,7 +34,7 @@ public class DoctorsArray
 
     public static List<DoctorClass> GetDoctors()
     {
-        return _doctors;
+        return Doctors;
     }
     
     public static void SetNumberOfDoctors(int number)

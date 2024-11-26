@@ -1,13 +1,13 @@
-﻿namespace Coursework.Arrays;
-using MainClasses;
-using Coursework;
+﻿namespace BusinessLogic;
+//using MainClasses;
+//using Coursework;
 
 public class ScheduleArray
 {
     // public static int NumberOfRecords { get; set; }
     private static List<ScheduleClass> _schedule = new List<ScheduleClass>();
 
-    public ScheduleArray() { }
+    //public ScheduleArray() { }
 
     public static void AddRecord(ScheduleClass record)
     {

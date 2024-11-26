@@ -1,5 +1,5 @@
-﻿namespace Coursework;
-using MainClasses;
+﻿namespace BusinessLogic;
+//using MainClasses;
 
 public class DoctorsData
 {

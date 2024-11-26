@@ -1,33 +1,33 @@
-﻿namespace Coursework.Arrays;
-using MainClasses;
+﻿namespace BusinessLogic;
+//using MainClasses;
 
 public class PatientsArray
 {
     // public static int NumberOfPatients { get; set; }
-    private static readonly List<PatientClass> _patients = new List<PatientClass>();
+    private static readonly List<PatientClass> Patients = new List<PatientClass>();
     
     public PatientsArray() { }
     
     public static void AddPatient(PatientClass patient)
     {
-        _patients.Add(patient);
+        Patients.Add(patient);
         //return this;
     }
     
     public PatientsArray RemovePatient(PatientClass patient)
     {
-        _patients.Remove(patient);
+        Patients.Remove(patient);
         return this;
     }
     
     public static List<PatientClass> GetPatients()
     {
-        return _patients;
+        return Patients;
     }
     
     public static int GetNumberOfPatients()
     {
-        return _patients.Count;
+        return Patients.Count;
     }
     
     //TODO: Implement the following methods

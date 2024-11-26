@@ -1,10 +1,10 @@
-﻿namespace Coursework;
+﻿namespace BusinessLogic;
 using System;
 using System.Text.RegularExpressions;
 
 public static class InputValidator
 {
-    private static string input;
+    private static string _input = "";
     public static string Validator(string request, string typeOfRequest)
     {
         //string input = Console.ReadLine();
@@ -29,12 +29,12 @@ public static class InputValidator
         //         break;
         // }
         
-        input = Console.ReadLine();
+        _input = Console.ReadLine() ?? string.Empty;
 
         while (true)
         {
             Console.WriteLine(request);
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(_input))
             { WrongInput("data because this field cannot be empty"); }
             else
             {
@@ -42,22 +42,22 @@ public static class InputValidator
                 {
                     case "data":
                     {
-                        if (!Regex.IsMatch(input, @"^[a-zA-Z]+$"))
+                        if (!Regex.IsMatch(_input, @"^[a-zA-Z]+$"))
                         { WrongInput(typeOfRequest); }
-                        else { return input; }
+                        else { return _input; }
                         break;
                     }
                     case "phone number":
                     {
-                        if (Regex.IsMatch(input, @"^(\+[0-9]{1,3})?[0-9]{9,10}$"))
-                        { return input; }
+                        if (Regex.IsMatch(_input, @"^(\+[0-9]{1,3})?[0-9]{9,10}$"))
+                        { return _input; }
                         else { WrongInput(typeOfRequest); }
                         break;
                     }
                     case "email address":
                     {
-                        if (Regex.IsMatch(input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
-                        { return input; }
+                        if (Regex.IsMatch(_input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                        { return _input; }
                         else { WrongInput(typeOfRequest); }
                         break;
                     }
@@ -69,7 +69,7 @@ public static class InputValidator
     private static void WrongInput(string reason)
     {
         Console.WriteLine($"Please enter a valid {reason}.");
-        input = Console.ReadLine();
+        _input = Console.ReadLine() ?? string.Empty;
     }
     
     // public static string EmailValidator(string request)

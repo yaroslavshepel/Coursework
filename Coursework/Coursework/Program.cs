@@ -2,7 +2,7 @@
 
 class Program : Functions
 {
-    public static void Main()
+    public static async Task Main()
     {
         var isStopped = true;
         while (isStopped)
@@ -14,7 +14,7 @@ class Program : Functions
             {
                 case 1:
                     Console.Clear();
-                    ManagementOfDoctors();
+                    await ManagementOfDoctors();
                     break;
                 case 2:
                     Console.Clear();
