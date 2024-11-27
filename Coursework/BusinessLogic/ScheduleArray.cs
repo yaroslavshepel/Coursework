@@ -1,6 +1,4 @@
 ﻿namespace BusinessLogic;
-//using MainClasses;
-//using Coursework;
 
 public class ScheduleArray
 {

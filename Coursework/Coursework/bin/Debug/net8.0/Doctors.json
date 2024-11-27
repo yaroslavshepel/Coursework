@@ -1,7 +1,6 @@
 {
-  "NumberOfDoctors": 3,
-  "Doctors": 
-  [
+  "NumberOfDoctors": 6,
+  "Doctors": [
     {
       "Name": "John",
       "Surname": "Doe",
@@ -19,6 +18,24 @@
       "Surname": "Johnson",
       "Specialization": "Pediatrics",
       "PhoneNumber": "555-123-4567"
+    },
+    {
+      "Name": "y",
+      "Surname": "s",
+      "Specialization": "s",
+      "PhoneNumber": "0989889281"
+    },
+    {
+      "Name": "y",
+      "Surname": "s",
+      "Specialization": "s",
+      "PhoneNumber": "0989889281"
+    },
+    {
+      "Name": "q",
+      "Surname": "w",
+      "Specialization": "e",
+      "PhoneNumber": "0989889281"
     }
   ]
 }

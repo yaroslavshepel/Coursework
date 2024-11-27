@@ -1,11 +1,9 @@
 ﻿namespace BusinessLogic;
-//using MainClasses;
-//using Coursework;
 
 public class DoctorsArray
 {
     private static int _numberOfDoctors;
-    public static readonly List<DoctorClass> Doctors = new List<DoctorClass>();
+    public static List<DoctorClass> Doctors = new List<DoctorClass>();
 
     //public DoctorsArray() { }
 
@@ -14,9 +12,10 @@ public class DoctorsArray
     //     _doctors.Add(doctor);
     // }
     
-    public static DoctorClass AddDoctor(string name, string surname, string specialization, string phoneNumber)
+    public static void AddDoctor(string name, string surname, string specialization, string phoneNumber)
     {
-        return new DoctorClass(name, surname, specialization, phoneNumber);
+        //return new DoctorClass(name, surname, specialization, phoneNumber);
+        Doctors.Add(new DoctorClass(name, surname, specialization, phoneNumber));
     }
 
     public static void RemoveDoctor(DoctorClass doctor)
@@ -40,6 +39,7 @@ public class DoctorsArray
     public static void SetNumberOfDoctors(int number)
     {
         _numberOfDoctors = number;
+        //Doctors = new List<DoctorClass>(number);
         //return _numberOfDoctors;
     }
     

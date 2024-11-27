@@ -1,5 +1,4 @@
 ﻿namespace BusinessLogic;
-//using MainClasses;
 
 public class DoctorsData
 {

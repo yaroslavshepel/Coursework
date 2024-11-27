@@ -8,11 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Arrays\" />
-      <Folder Include="MainClasses\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
     </ItemGroup>
 
