@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic;
+﻿namespace BusinessLogic.Doctors;
 
 public class DoctorsArray
 {
@@ -31,6 +31,11 @@ public class DoctorsArray
         doctor.PhoneNumber = phoneNumber;
     }
 
+    public static DoctorClass FindDoctor(string name, string surname)
+    {
+        return Doctors.Find(doctor => doctor.Name == name && doctor.Surname == surname);
+    }
+
     public static List<DoctorClass> GetDoctors()
     {
         return Doctors;
@@ -47,4 +52,25 @@ public class DoctorsArray
     {
         return _numberOfDoctors;
     }
+
+    /*public static void EditDoctor(string name, string surname, DoctorClass doctor)
+    {
+        for (int i = 0; i < Doctors.Count; i++)
+        {
+            if (Doctors[i].Name == name || Doctors[i].Surname == surname)
+            {
+                Doctors[i] = doctor;
+            }
+        }
+    }*/
+    
+    // public static string PrintDoctors ()
+    // {
+    //     string result = "";
+    //     foreach (var doctor in Doctors)
+    //     {
+    //         result += doctor.Name + " " + doctor.Surname + " " + doctor.Specialization + " " + doctor.PhoneNumber + "\n";
+    //     }
+    //     return result;
+    // }
 }

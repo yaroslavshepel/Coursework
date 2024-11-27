@@ -1,4 +1,7 @@
 ﻿namespace BusinessLogic;
+using Doctors;
+using Patients;
+using Schedule;
 
 public class DoctorsData
 {

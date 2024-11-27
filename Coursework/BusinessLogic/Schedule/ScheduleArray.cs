@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic;
+﻿namespace BusinessLogic.Schedule;
 
 public class ScheduleArray
 {

@@ -1,4 +1,5 @@
 ﻿namespace Coursework;
+using BusinessLogic;
 
 class Program : Functions
 {
@@ -7,6 +8,7 @@ class Program : Functions
         var isStopped = true;
         while (isStopped)
         {
+            
             Console.WriteLine(ConsoleMenu.MainMenu());
             // var choice = Console.ReadKey().Key;
             var choice = Convert.ToInt32(Console.ReadLine());
@@ -15,6 +17,7 @@ class Program : Functions
             {
                 case 1://ConsoleKey.NumPad1:
                     Console.Clear();
+                    await WorkWithFiles.ReadFiles();
                     await ManagementOfDoctors();
                     break;
                 // case ConsoleKey.NumPad2:
@@ -30,6 +33,7 @@ class Program : Functions
                 //     Search();
                 //     break;
                 case 5: //ConsoleKey.NumPad5:
+                    await WorkWithFiles.WriteToFiles();
                     isStopped = false;
                     break;
                 default:

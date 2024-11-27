@@ -1,5 +1,5 @@
 {
-  "NumberOfDoctors": 6,
+  "NumberOfDoctors": 8,
   "Doctors": [
     {
       "Name": "John",
@@ -20,22 +20,34 @@
       "PhoneNumber": "555-123-4567"
     },
     {
-      "Name": "y",
-      "Surname": "s",
-      "Specialization": "s",
+      "Name": "ee",
+      "Surname": "qq",
+      "Specialization": "ww",
+      "PhoneNumber": "0672324903"
+    },
+    {
+      "Name": "Yaroslav",
+      "Surname": "Shepel",
+      "Specialization": "Programming",
       "PhoneNumber": "0989889281"
     },
     {
-      "Name": "y",
-      "Surname": "s",
-      "Specialization": "s",
-      "PhoneNumber": "0989889281"
+      "Name": "qq",
+      "Surname": "ww",
+      "Specialization": "ee",
+      "PhoneNumber": "0675061156"
     },
     {
-      "Name": "q",
-      "Surname": "w",
-      "Specialization": "e",
-      "PhoneNumber": "0989889281"
+      "Name": "qwer",
+      "Surname": "edcv",
+      "Specialization": "hyjk",
+      "PhoneNumber": "0988250302"
+    },
+    {
+      "Name": "rtyu",
+      "Surname": "qsfj",
+      "Specialization": "nyuk",
+      "PhoneNumber": "0239797435"
     }
   ]
 }

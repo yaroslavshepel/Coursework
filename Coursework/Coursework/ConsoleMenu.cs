@@ -16,8 +16,8 @@ public static class ConsoleMenu
     public static string ManagementOfDoctorsMenu()
     {
         return "1. Add a doctor\n" +
-               "2. Remove a doctor\n" +
-               "3. Edit data about doctor\n" +
+               "2. Edit data about doctor\n" +
+               "3. Remove a doctor\n" +
                "4. View all doctors and their specializations\n" +
                "5. Back to main menu";
     }
