@@ -1,30 +1,110 @@
 {
-  "NumberOfPatients": 0
-}  "Patients": 
-  [
+  "NumberOfPatients": 7,
+  "Patients": [
     {
-      "_name": "Alice",
-      "_surname": "Brown",
-      "_address": "123 Main St",
-      "_phoneNumber": "111-222-3333",
-      "_email": "alice.brown@example.com",
-      "_medicalRecord": "Record1"
+      "PatientId": 1,
+      "Name": "John",
+      "Surname": "Doe",
+      "Address": "123 Main St",
+      "PhoneNumber": "555-1234",
+      "Email": "john.doe@example.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2023-10-01T00:00:00",
+        "RecordId": 101,
+        "DoctorId": 11,
+        "Diagnosis": "Flu",
+        "Treatment": "Rest and hydration"
+      }
     },
     {
-      "_name": "Bob",
-      "_surname": "White",
-      "_address": "456 Elm St",
-      "_phoneNumber": "444-555-6666",
-      "_email": "bob.white@example.com",
-      "_medicalRecord": "Record2"
+      "PatientId": 2,
+      "Name": "Jane",
+      "Surname": "Smith",
+      "Address": "456 Elm St",
+      "PhoneNumber": "555-5678",
+      "Email": "jane.smith@example.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2023-10-02T00:00:00",
+        "RecordId": 102,
+        "DoctorId": 6,
+        "Diagnosis": "Cold",
+        "Treatment": "Over-the-counter medication"
+      }
     },
     {
-      "_name": "Charlie",
-      "_surname": "Black",
-      "_address": "789 Oak St",
-      "_phoneNumber": "777-888-9999",
-      "_email": "charlie.black@example.com",
-      "_medicalRecord": "Record3"
+      "PatientId": 3,
+      "Name": "Alice",
+      "Surname": "Johnson",
+      "Address": "789 Oak St",
+      "PhoneNumber": "555-8765",
+      "Email": "alice.johnson@example.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2023-10-03T00:00:00",
+        "RecordId": 103,
+        "DoctorId": 7,
+        "Diagnosis": "Allergies",
+        "Treatment": "Antihistamines"
+      }
+    },
+    {
+      "PatientId": 4,
+      "Name": "Bob",
+      "Surname": "Brown",
+      "Address": "321 Pine St",
+      "PhoneNumber": "555-4321",
+      "Email": "bob.brown@example.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2023-10-04T00:00:00",
+        "RecordId": 104,
+        "DoctorId": 4,
+        "Diagnosis": "Asthma",
+        "Treatment": "Inhaler"
+      }
+    },
+    {
+      "PatientId": 5,
+      "Name": "Charlie",
+      "Surname": "Davis",
+      "Address": "654 Maple St",
+      "PhoneNumber": "555-6789",
+      "Email": "charlie.davis@example.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2023-10-05T00:00:00",
+        "RecordId": 105,
+        "DoctorId": 2,
+        "Diagnosis": "Diabetes",
+        "Treatment": "Insulin"
+      }
+    },
+    {
+      "PatientId": 6,
+      "Name": "rqr",
+      "Surname": "fwe",
+      "Address": "gwew",
+      "PhoneNumber": "0988562405",
+      "Email": "few@gm.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "0001-01-01T00:00:00",
+        "RecordId": 106,
+        "DoctorId": 8,
+        "Diagnosis": "HMMM",
+        "Treatment": "PIIIIIIIIIIIILLLSSSS"
+      }
+    },
+    {
+      "PatientId": 7,
+      "Name": "Ann",
+      "Surname": "Did",
+      "Address": "Hmm",
+      "PhoneNumber": "0745621456",
+      "Email": "anndid@gmail.com",
+      "MedicalRecord": {
+        "RecordCreationDate": "2024-12-01T00:33:47.0254525+02:00",
+        "RecordId": 107,
+        "DoctorId": 11,
+        "Diagnosis": "Headache",
+        "Treatment": "Rest"
+      }
     }
   ]
 }

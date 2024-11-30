@@ -1,5 +1,5 @@
 {
-  "NumberOfDoctors": 9,
+  "NumberOfDoctors": 10,
   "Doctors": [
     {
       "DoctorId": 1,
@@ -63,6 +63,13 @@
       "Surname": "rejwhjhwerjhj",
       "Specialization": "rtewjtrjtwrjtjw",
       "PhoneNumber": "0567451203"
+    },
+    {
+      "DoctorId": 11,
+      "Name": "we",
+      "Surname": "ew",
+      "Specialization": "re",
+      "PhoneNumber": "0985684231"
     }
   ]
 }

@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic.Patients;
+﻿using BusinessLogic.MedicalRecords;
+
+namespace BusinessLogic.Patients;
 
 public class PatientsArray
 {
@@ -9,9 +11,9 @@ public class PatientsArray
     
     public static int NumberOfPatients { get => _numberOfPatients; set => _numberOfPatients = value; }
     
-    public static void AddPatient(string name, string surname, string address, string phoneNumber, string email, string medicalRecord)
+    public static void AddPatient(string name, string surname, string address, string phoneNumber, string email, MedicalRecordClass medicalRecord)
     {
-        //_patients.Add(new PatientClass(name, surname, address, phoneNumber, email, medicalRecord));
+        _patients.Add(new PatientClass(_patients.Last().PatientId + 1, name, surname, address, phoneNumber, email, medicalRecord));
         _numberOfPatients++;
     }
     

@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic;
+﻿using BusinessLogic.Doctors;
+
+namespace BusinessLogic;
 using System;
 using System.Text.RegularExpressions;
 
@@ -30,9 +32,21 @@ public static class InputValidator
                     }
                     case "email address":
                     {
-                        if (Regex.IsMatch(_input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$") || string.IsNullOrEmpty(_input))
+                        if (!Regex.IsMatch(_input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$") || string.IsNullOrEmpty(_input))
                         { WrongInput(whatIsAsked); }
                         else { return _input; }
+                        break;
+                    }
+                    case "doctor ID":
+                    {
+                        if (!Regex.IsMatch(_input, @"^[0-9]+$") || string.IsNullOrEmpty(_input))
+                        { WrongInput(whatIsAsked); }
+                        else
+                        {
+                            if (DoctorsArray.Doctors.Find(d => d.DoctorId == Convert.ToInt32(_input)) == null)
+                            { WrongInput(whatIsAsked); }
+                            else { return _input; }
+                        }
                         break;
                     }
                     default:

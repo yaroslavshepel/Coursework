@@ -7,7 +7,7 @@ public class DoctorsFunctions
     private static string _specialization = "";
     private static string _phoneNumber = "";
     
-    public static async Task AddDoctor()
+    public static Task AddDoctor()
     {
         Console.WriteLine("Adding a doctor.");
         _name = InputValidator.Validator("Enter the doctor's name: ", "name", "data");
@@ -19,6 +19,7 @@ public class DoctorsFunctions
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
         //DoctorsArray.NumberOfDoctors++;
         Console.WriteLine("Doctor added successfully.");
+        return Task.CompletedTask;
     }
     
     public static void EditDoctor()
@@ -37,6 +38,7 @@ public class DoctorsFunctions
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "specialization", "data");
         var newPhoneNumber = InputValidator.Validator("Enter the new phone number: ", "phone number", "phone number");
         doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber);
+        Console.Clear();
         Console.WriteLine("Doctor edited successfully.");
     }
     
@@ -63,22 +65,37 @@ public class DoctorsFunctions
         DoctorsArray.RemoveDoctor(doctor);
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() - 1);
         //DoctorsArray.NumberOfDoctors--;
+        Console.Clear();
         Console.WriteLine("Doctor removed successfully.");
     }
     
-    public static void PrintDoctors()
+    public static void PrintDoctors(string request)
     {
-        //var doctors = DoctorsArray.GetDoctors();
         var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
-        //for (int i = 0; i < DoctorsArray.GetNumberOfDoctors(); i++)
-        for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
+        switch (request)
         {
-            Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
-                              $"Name: {doctors[i].Name}, " +
-                              $"Surname: {doctors[i].Surname}, " +
-                              $"Specialization: {doctors[i].Specialization}, " +
-                              $"Phone Number: {doctors[i].PhoneNumber}");
+            case "all":
+            {
+                for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
+                {
+                    Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
+                                      $"Name: {doctors[i].Name}, " +
+                                      $"Surname: {doctors[i].Surname}, " +
+                                      $"Specialization: {doctors[i].Specialization}, " +
+                                      $"Phone Number: {doctors[i].PhoneNumber}");
+                }
+                break;
+            }
+            case "IDs and specializations":
+            {
+                for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
+                {
+                    Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
+                                      $"Specialization: {doctors[i].Specialization}");
+                }
+                break;
+            }
         }
     }
 }

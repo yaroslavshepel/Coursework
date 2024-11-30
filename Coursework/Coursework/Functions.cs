@@ -1,6 +1,7 @@
 ﻿namespace Coursework;
 using BusinessLogic;
 using BusinessLogic.Doctors;
+using BusinessLogic.Patients;
 
 public class Functions
 {
@@ -10,29 +11,38 @@ public class Functions
         while (isStopped)
         {
             Console.WriteLine(ConsoleMenu.ManagementOfDoctorsMenu());
-            //var choice = Console.ReadKey().Key;
-            var choice = Convert.ToInt32(Console.ReadLine());
+            var choice = Console.ReadKey().Key;
+            // var choice = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             switch (choice)
             {
-                case 1://ConsoleKey.NumPad1:
+                //case 1:
+                case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
                     Console.Clear();
                     await DoctorsFunctions.AddDoctor();
                     break;
-                case 2://ConsoleKey.NumPad2:
+                // case 2:
+                case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
                     Console.Clear();
-                    // await WorkWithFiles.ReadFiles();
                     DoctorsFunctions.EditDoctor();
                     break;
-                case 3://ConsoleKey.NumPad3:
+                // case 3:
+                case ConsoleKey.NumPad3:
+                case ConsoleKey.D3:
                     Console.Clear();
                     DoctorsFunctions.RemoveDoctor();
                     break;
-                case 4://ConsoleKey.NumPad4:
+                // case 4:
+                case ConsoleKey.NumPad4:
+                case ConsoleKey.D4:
                     Console.Clear();
-                    DoctorsFunctions.PrintDoctors();
+                    DoctorsFunctions.PrintDoctors("all");
                     break;
-                case 5://ConsoleKey.NumPad5:
+                // case 5:
+                case ConsoleKey.NumPad0:
+                case ConsoleKey.D0:
                     await WorkWithFiles.WriteToFiles();
                     Console.Clear();
                     isStopped = false;
@@ -44,7 +54,7 @@ public class Functions
         }
     }
     
-    protected static void ManagementOfPatients()
+    protected static async Task ManagementOfPatients()
     {
         var isStopped = true;
         while (isStopped)
@@ -55,18 +65,28 @@ public class Functions
             switch (choice)
             {
                 case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
                     Console.Clear();
-                    // AddPatient();
+                    await PatientFunctions.AddPatient();
                     break;
                 case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
                     Console.Clear();
-                    // DeletePatient();
+                    PatientFunctions.RemovePatient();
                     break;
                 case ConsoleKey.NumPad3:
+                case ConsoleKey.D3:
                     Console.Clear();
-                    // ElectronicMedicalRecord();
+                    PatientFunctions.EditPatient();
                     break;
                 case ConsoleKey.NumPad4:
+                case ConsoleKey.D4:
+                    Console.Clear();
+                    PatientFunctions.PrintPatients();
+                    break;
+                case ConsoleKey.NumPad0:
+                case ConsoleKey.D0:
+                    await WorkWithFiles.WriteToFiles();
                     Console.Clear();
                     isStopped = false;
                     break;
@@ -88,22 +108,27 @@ public class Functions
             switch (choice)
             {
                 case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
                     Console.Clear();
                     // AddReceptionSchedule();
                     break;
                 case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
                     Console.Clear();
                     // DeleteReceptionSchedule();
                     break;
                 case ConsoleKey.NumPad3:
+                case ConsoleKey.D3:
                     Console.Clear();
                     // EditReceptionSchedule();
                     break;
                 case ConsoleKey.NumPad4:
+                case ConsoleKey.D4:
                     Console.Clear();
                     // MakeAppointment();
                     break;
-                case ConsoleKey.NumPad5:
+                case ConsoleKey.NumPad0:
+                case ConsoleKey.D0:
                     Console.Clear();
                     isStopped = false;
                     break;
@@ -125,18 +150,22 @@ public class Functions
             switch (choice)
             {
                 case ConsoleKey.NumPad1:
+                case ConsoleKey.D1:
                     Console.Clear();
                     // SearchPatient();
                     break;
                 case ConsoleKey.NumPad2:
+                case ConsoleKey.D2:
                     Console.Clear();
                     // SearchDoctor();
                     break;
                 case ConsoleKey.NumPad3:
+                case ConsoleKey.D3:
                     Console.Clear();
                     // GetDoctorSchedule();
                     break;
-                case ConsoleKey.NumPad4:
+                case ConsoleKey.NumPad0:
+                case ConsoleKey.D0:
                     Console.Clear();
                     isStopped = false;
                     break;
