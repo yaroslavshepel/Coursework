@@ -3,27 +3,27 @@
 public class DoctorsArray
 {
     private static int _numberOfDoctors;
-    public static List<DoctorClass> Doctors = new List<DoctorClass>();
-
-    //public DoctorsArray() { }
-
-    // public static void AddDoctor(DoctorClass doctor)
-    // {
-    //     _doctors.Add(doctor);
-    // }
+    private static List<DoctorClass> _doctors = new();
+    
+    public static List<DoctorClass> Doctors { get => _doctors; set => _doctors = value; }
+    public static int NumberOfDoctors { get => _numberOfDoctors; set => _numberOfDoctors = value; }
     
     public static void AddDoctor(string name, string surname, string specialization, string phoneNumber)
     {
-        //return new DoctorClass(name, surname, specialization, phoneNumber);
-        Doctors.Add(new DoctorClass(name, surname, specialization, phoneNumber));
+        //DoctorClass doctorTmp = _doctors.Last();
+        
+        //int doctorId = _doctors.Last().DoctorId + 1;
+        Doctors.Add(new DoctorClass(_doctors.Last().DoctorId + 1, name, surname, specialization, phoneNumber));
+        _numberOfDoctors++;
     }
 
     public static void RemoveDoctor(DoctorClass doctor)
     {
         Doctors.Remove(doctor);
+        _numberOfDoctors--;
     }
 
-    public static void EditDoctor(DoctorClass doctor, string name, string surname, string specialization, string phoneNumber)
+    /*public static void EditDoctor(DoctorClass doctor, string name, string surname, string specialization, string phoneNumber)
     {
         doctor.Name = name;
         doctor.Surname = surname;
@@ -33,44 +33,14 @@ public class DoctorsArray
 
     public static DoctorClass FindDoctor(string name, string surname)
     {
-        return Doctors.Find(doctor => doctor.Name == name && doctor.Surname == surname);
-    }
+        return Doctors.Find(doctor => doctor.Name == name && doctor.Surname == surname) 
+               ?? throw new Exception();
+    }*/
 
     public static List<DoctorClass> GetDoctors()
     {
         return Doctors;
     }
     
-    public static void SetNumberOfDoctors(int number)
-    {
-        _numberOfDoctors = number;
-        //Doctors = new List<DoctorClass>(number);
-        //return _numberOfDoctors;
-    }
     
-    public static int GetNumberOfDoctors()
-    {
-        return _numberOfDoctors;
-    }
-
-    /*public static void EditDoctor(string name, string surname, DoctorClass doctor)
-    {
-        for (int i = 0; i < Doctors.Count; i++)
-        {
-            if (Doctors[i].Name == name || Doctors[i].Surname == surname)
-            {
-                Doctors[i] = doctor;
-            }
-        }
-    }*/
-    
-    // public static string PrintDoctors ()
-    // {
-    //     string result = "";
-    //     foreach (var doctor in Doctors)
-    //     {
-    //         result += doctor.Name + " " + doctor.Surname + " " + doctor.Specialization + " " + doctor.PhoneNumber + "\n";
-    //     }
-    //     return result;
-    // }
 }

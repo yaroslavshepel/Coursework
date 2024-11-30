@@ -16,13 +16,14 @@ public class DoctorsFunctions
         _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number", "phone number");
         
         DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber);
-        DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
+        //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
+        //DoctorsArray.NumberOfDoctors++;
         Console.WriteLine("Doctor added successfully.");
     }
     
     public static void EditDoctor()
     {
-        var doctors = DoctorsArray.GetDoctors();
+        var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
 
         _name = InputValidator.Validator("Enter name of doctor to edit: ", "name", "data");
@@ -35,13 +36,14 @@ public class DoctorsFunctions
         var newSurname = InputValidator.Validator("Enter the new surname: ", "surname", "data");
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "specialization", "data");
         var newPhoneNumber = InputValidator.Validator("Enter the new phone number: ", "phone number", "phone number");
-        doctor.EditDoctor(newName, newSurname, newSpecialization, newPhoneNumber);
+        doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber);
         Console.WriteLine("Doctor edited successfully.");
     }
     
     public static void RemoveDoctor()
     {
-        var doctors = DoctorsArray.GetDoctors();
+        //var doctors = DoctorsArray.GetDoctors();
+        var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0)
         {
             Console.WriteLine("There are no doctors in the system.");
@@ -59,17 +61,24 @@ public class DoctorsFunctions
         }
 
         DoctorsArray.RemoveDoctor(doctor);
-        DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() - 1);
+        //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() - 1);
+        //DoctorsArray.NumberOfDoctors--;
         Console.WriteLine("Doctor removed successfully.");
     }
     
     public static void PrintDoctors()
     {
-        var doctors = DoctorsArray.GetDoctors();
+        //var doctors = DoctorsArray.GetDoctors();
+        var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
-        for (int i = 0; i < DoctorsArray.GetNumberOfDoctors(); i++)
+        //for (int i = 0; i < DoctorsArray.GetNumberOfDoctors(); i++)
+        for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
         {
-            Console.WriteLine($"Name: {doctors[i].Name}, Surname: {doctors[i].Surname}, Specialization: {doctors[i].Specialization}, Phone Number: {doctors[i].PhoneNumber}");
+            Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
+                              $"Name: {doctors[i].Name}, " +
+                              $"Surname: {doctors[i].Surname}, " +
+                              $"Specialization: {doctors[i].Specialization}, " +
+                              $"Phone Number: {doctors[i].PhoneNumber}");
         }
     }
 }

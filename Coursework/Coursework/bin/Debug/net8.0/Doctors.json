@@ -1,53 +1,68 @@
 {
-  "NumberOfDoctors": 8,
+  "NumberOfDoctors": 9,
   "Doctors": [
     {
+      "DoctorId": 1,
       "Name": "John",
       "Surname": "Doe",
       "Specialization": "Cardiology",
       "PhoneNumber": "123-456-7890"
     },
     {
+      "DoctorId": 2,
       "Name": "Jane",
       "Surname": "Smith",
       "Specialization": "Neurology",
       "PhoneNumber": "987-654-3210"
     },
     {
+      "DoctorId": 3,
       "Name": "Emily",
       "Surname": "Johnson",
       "Specialization": "Pediatrics",
       "PhoneNumber": "555-123-4567"
     },
     {
+      "DoctorId": 4,
       "Name": "ee",
       "Surname": "qq",
       "Specialization": "ww",
       "PhoneNumber": "0672324903"
     },
     {
+      "DoctorId": 5,
       "Name": "Yaroslav",
       "Surname": "Shepel",
       "Specialization": "Programming",
       "PhoneNumber": "0989889281"
     },
     {
-      "Name": "qq",
-      "Surname": "ww",
-      "Specialization": "ee",
-      "PhoneNumber": "0675061156"
-    },
-    {
+      "DoctorId": 7,
       "Name": "qwer",
       "Surname": "edcv",
       "Specialization": "hyjk",
       "PhoneNumber": "0988250302"
     },
     {
-      "Name": "rtyu",
-      "Surname": "qsfj",
-      "Specialization": "nyuk",
-      "PhoneNumber": "0239797435"
+      "DoctorId": 8,
+      "Name": "wegewgwgw",
+      "Surname": "nrtnjtrrtj",
+      "Specialization": "degerererh",
+      "PhoneNumber": "0988250302"
+    },
+    {
+      "DoctorId": 9,
+      "Name": "eshrehehsehyhehre",
+      "Surname": "erhrhhehrhehrherhh",
+      "Specialization": "erhehehkejrhnerjkhine",
+      "PhoneNumber": "0763256971"
+    },
+    {
+      "DoctorId": 10,
+      "Name": "trjntrjjnj",
+      "Surname": "rejwhjhwerjhj",
+      "Specialization": "rtewjtrjtwrjtjw",
+      "PhoneNumber": "0567451203"
     }
   ]
 }

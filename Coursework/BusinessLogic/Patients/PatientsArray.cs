@@ -2,31 +2,23 @@
 
 public class PatientsArray
 {
-    // public static int NumberOfPatients { get; set; }
-    private static readonly List<PatientClass> Patients = new List<PatientClass>();
+    private static int _numberOfPatients;
+    private static List<PatientClass> _patients = new();
     
-    public PatientsArray() { }
+    public static List<PatientClass> Patients { get => _patients; set => _patients = value; }
     
-    public static void AddPatient(PatientClass patient)
+    public static int NumberOfPatients { get => _numberOfPatients; set => _numberOfPatients = value; }
+    
+    public static void AddPatient(string name, string surname, string address, string phoneNumber, string email, string medicalRecord)
     {
-        Patients.Add(patient);
-        //return this;
+        //_patients.Add(new PatientClass(name, surname, address, phoneNumber, email, medicalRecord));
+        _numberOfPatients++;
     }
     
-    public PatientsArray RemovePatient(PatientClass patient)
+    public static void RemovePatient(PatientClass patient)
     {
-        Patients.Remove(patient);
-        return this;
-    }
-    
-    public static List<PatientClass> GetPatients()
-    {
-        return Patients;
-    }
-    
-    public static int GetNumberOfPatients()
-    {
-        return Patients.Count;
+        _patients.Remove(patient);
+        _numberOfPatients--;
     }
     
     //TODO: Implement the following methods

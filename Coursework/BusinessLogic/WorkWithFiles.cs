@@ -15,7 +15,8 @@ public class WorkWithFiles
                 var loadedDoctors = await JsonSerializer.DeserializeAsync<DoctorsData>(fs, Options);
                 if (loadedDoctors != null)
                 {
-                    DoctorsArray.SetNumberOfDoctors(loadedDoctors.NumberOfDoctors);
+                    //DoctorsArray.SetNumberOfDoctors(loadedDoctors.NumberOfDoctors);
+                    DoctorsArray.NumberOfDoctors = loadedDoctors.NumberOfDoctors;
                     DoctorsArray.Doctors.Clear();
                     foreach (var doctor in loadedDoctors.Doctors)
                     {
@@ -37,10 +38,9 @@ public class WorkWithFiles
     
     public static async Task WriteToFiles()
     {
-        
-        
         var doctorsToWrite = new List<DoctorClass>(DoctorsArray.Doctors);
-        var combinedData = new DoctorsData { NumberOfDoctors = doctorsToWrite.Count, Doctors = doctorsToWrite };
+        //var combinedData = new DoctorsData { NumberOfDoctors = doctorsToWrite.Count, Doctors = doctorsToWrite };
+        var combinedData = new DoctorsData { NumberOfDoctors = DoctorsArray.NumberOfDoctors, Doctors = doctorsToWrite };
         try
         {
             await using (FileStream fs = new FileStream("Doctors.json", FileMode.Create))
