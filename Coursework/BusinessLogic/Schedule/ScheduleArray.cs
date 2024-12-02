@@ -2,30 +2,24 @@
 
 public class ScheduleArray
 {
-    // public static int NumberOfRecords { get; set; }
+    private static int _numberOfScheduleRecords;
     private static List<ScheduleClass> _schedule = new List<ScheduleClass>();
 
-    //public ScheduleArray() { }
+    public static int NumberOfScheduleRecords 
+    { get => _numberOfScheduleRecords; set => _numberOfScheduleRecords = value; }
+    public static List<ScheduleClass> Schedule { get => _schedule; set => _schedule = value; }
 
-    public static void AddRecord(ScheduleClass record)
+   public static void AddScheduleRecord(string doctorId, string patientId, DateTime date)
     {
-        _schedule.Add(record);
-        //return;
+        Schedule.Add(new ScheduleClass(doctorId, patientId, date));
+        _numberOfScheduleRecords++;
     }
 
     public static void RemoveRecord(ScheduleClass record)
     {
         _schedule.Remove(record);
-        //return this;
+        _numberOfScheduleRecords--;
     }
     
-    public static List<ScheduleClass> GetRecords()
-    {
-        return _schedule;
-    }
     
-    public static int GetNumberOfRecords()
-    {
-        return _schedule.Count;
-    }
 }

@@ -2,74 +2,174 @@
   "NumberOfDoctors": 10,
   "Doctors": [
     {
-      "DoctorId": 1,
+      "DoctorId": "D001",
       "Name": "John",
-      "Surname": "Doe",
-      "Specialization": "Cardiology",
-      "PhoneNumber": "123-456-7890"
-    },
-    {
-      "DoctorId": 2,
-      "Name": "Jane",
       "Surname": "Smith",
-      "Specialization": "Neurology",
-      "PhoneNumber": "987-654-3210"
+      "Specialization": "Cardiology",
+      "PhoneNumber": "\u002B1234567890",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 3,
-      "Name": "Emily",
+      "DoctorId": "D002",
+      "Name": "Jane",
+      "Surname": "Doe",
+      "Specialization": "Neurology",
+      "PhoneNumber": "\u002B0987654321",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
+    },
+    {
+      "DoctorId": "D003",
+      "Name": "Alice",
       "Surname": "Johnson",
       "Specialization": "Pediatrics",
-      "PhoneNumber": "555-123-4567"
+      "PhoneNumber": "\u002B1122334455",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 4,
-      "Name": "ee",
-      "Surname": "qq",
-      "Specialization": "ww",
-      "PhoneNumber": "0672324903"
+      "DoctorId": "D004",
+      "Name": "Bob",
+      "Surname": "Brown",
+      "Specialization": "Dermatology",
+      "PhoneNumber": "\u002B2233445566",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 5,
-      "Name": "Yaroslav",
-      "Surname": "Shepel",
-      "Specialization": "Programming",
-      "PhoneNumber": "0989889281"
+      "DoctorId": "D005",
+      "Name": "Charlie",
+      "Surname": "Davis",
+      "Specialization": "Orthopedics",
+      "PhoneNumber": "\u002B3344556677",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 7,
-      "Name": "qwer",
-      "Surname": "edcv",
-      "Specialization": "hyjk",
-      "PhoneNumber": "0988250302"
+      "DoctorId": "D006",
+      "Name": "David",
+      "Surname": "Evans",
+      "Specialization": "Gastroenterology",
+      "PhoneNumber": "\u002B4455667788",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 8,
-      "Name": "wegewgwgw",
-      "Surname": "nrtnjtrrtj",
-      "Specialization": "degerererh",
-      "PhoneNumber": "0988250302"
+      "DoctorId": "D007",
+      "Name": "Eve",
+      "Surname": "Garcia",
+      "Specialization": "Oncology",
+      "PhoneNumber": "\u002B5566778899",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 9,
-      "Name": "eshrehehsehyhehre",
-      "Surname": "erhrhhehrhehrherhh",
-      "Specialization": "erhehehkejrhnerjkhine",
-      "PhoneNumber": "0763256971"
+      "DoctorId": "D008",
+      "Name": "Frank",
+      "Surname": "Harris",
+      "Specialization": "Urology",
+      "PhoneNumber": "\u002B6677889900",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 10,
-      "Name": "trjntrjjnj",
-      "Surname": "rejwhjhwerjhj",
-      "Specialization": "rtewjtrjtwrjtjw",
-      "PhoneNumber": "0567451203"
+      "DoctorId": "D009",
+      "Name": "Grace",
+      "Surname": "Jackson",
+      "Specialization": "Ophthalmology",
+      "PhoneNumber": "\u002B7788990011",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     },
     {
-      "DoctorId": 11,
-      "Name": "we",
-      "Surname": "ew",
-      "Specialization": "re",
-      "PhoneNumber": "0985684231"
+      "DoctorId": "D010",
+      "Name": "Hannah",
+      "Surname": "King",
+      "Specialization": "Psychiatry",
+      "PhoneNumber": "\u002B8899001122",
+      "AvailableHours": [
+        "2023-12-01T08:00:00",
+        "2023-12-01T08:30:00",
+        "2023-12-01T09:00:00",
+        "2023-12-01T09:30:00",
+        "2023-12-01T10:00:00",
+        "2023-12-01T10:30:00",
+        "2023-12-01T11:00:00",
+        "2023-12-01T11:30:00"
+      ]
     }
   ]
 }

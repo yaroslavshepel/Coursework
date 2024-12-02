@@ -2,23 +2,26 @@
 
 public class ScheduleClass
 {
-    // private DoctorClass doctor;
-    // private PatientClass patient;
-    // private DateTime date;
-    // private string time;
-    //
-    // public ScheduleClass() { }
-    //
-    // public ScheduleClass(DoctorClass doctor, PatientClass patient, DateTime date, string time)
-    // {
-    //     this.doctor = doctor;
-    //     this.patient = patient;
-    //     this.date = date;
-    //     this.time = time;
-    // }
-    //
-    // public ScheduleClass AddRecord(DoctorClass doctor, PatientClass patient, DateTime date, string time)
-    // {
-    //     return new ScheduleClass(doctor, patient, date, time);
-    // }
+    private string _doctorId = "";
+    private string _patientId = "";
+    private DateTime _Scheduledate;
+    
+    public string DoctorId { get => _doctorId; set => _doctorId = value; }
+    public string PatientId { get => _patientId; set => _patientId = value; }
+    public DateTime Date { get => _Scheduledate; set => _Scheduledate = value; }
+    
+    public ScheduleClass(string doctorId, string patientId, DateTime scheduleDate)
+    {
+        DoctorId = doctorId;
+        PatientId = patientId;
+        Date = scheduleDate;
+    }
+    
+    public ScheduleClass EditSchedule(string doctorId, string patientId, DateTime scheduleDate)
+    {
+        DoctorId = doctorId;
+        PatientId = patientId;
+        Date = scheduleDate;
+        return new ScheduleClass(doctorId, patientId, scheduleDate);
+    }
 }

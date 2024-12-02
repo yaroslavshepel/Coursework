@@ -1,8 +1,8 @@
 {
-  "NumberOfPatients": 7,
+  "NumberOfPatients": 8,
   "Patients": [
     {
-      "PatientId": 1,
+      "PatientId": "P1",
       "Name": "John",
       "Surname": "Doe",
       "Address": "123 Main St",
@@ -10,14 +10,14 @@
       "Email": "john.doe@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-01T00:00:00",
-        "RecordId": 101,
-        "DoctorId": 11,
+        "RecordId": "MR1",
+        "DoctorId": "D11",
         "Diagnosis": "Flu",
         "Treatment": "Rest and hydration"
       }
     },
     {
-      "PatientId": 2,
+      "PatientId": "P2",
       "Name": "Jane",
       "Surname": "Smith",
       "Address": "456 Elm St",
@@ -25,14 +25,14 @@
       "Email": "jane.smith@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-02T00:00:00",
-        "RecordId": 102,
-        "DoctorId": 6,
+        "RecordId": "MR2",
+        "DoctorId": "D4",
         "Diagnosis": "Cold",
         "Treatment": "Over-the-counter medication"
       }
     },
     {
-      "PatientId": 3,
+      "PatientId": "P3",
       "Name": "Alice",
       "Surname": "Johnson",
       "Address": "789 Oak St",
@@ -40,14 +40,14 @@
       "Email": "alice.johnson@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-03T00:00:00",
-        "RecordId": 103,
-        "DoctorId": 7,
+        "RecordId": "MR3",
+        "DoctorId": "D3",
         "Diagnosis": "Allergies",
         "Treatment": "Antihistamines"
       }
     },
     {
-      "PatientId": 4,
+      "PatientId": "P4",
       "Name": "Bob",
       "Surname": "Brown",
       "Address": "321 Pine St",
@@ -55,14 +55,14 @@
       "Email": "bob.brown@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-04T00:00:00",
-        "RecordId": 104,
-        "DoctorId": 4,
+        "RecordId": "MR4",
+        "DoctorId": "D7",
         "Diagnosis": "Asthma",
         "Treatment": "Inhaler"
       }
     },
     {
-      "PatientId": 5,
+      "PatientId": "P5",
       "Name": "Charlie",
       "Surname": "Davis",
       "Address": "654 Maple St",
@@ -70,14 +70,14 @@
       "Email": "charlie.davis@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-05T00:00:00",
-        "RecordId": 105,
-        "DoctorId": 2,
+        "RecordId": "MR5",
+        "DoctorId": "D2",
         "Diagnosis": "Diabetes",
         "Treatment": "Insulin"
       }
     },
     {
-      "PatientId": 6,
+      "PatientId": "P6",
       "Name": "rqr",
       "Surname": "fwe",
       "Address": "gwew",
@@ -85,14 +85,14 @@
       "Email": "few@gm.com",
       "MedicalRecord": {
         "RecordCreationDate": "0001-01-01T00:00:00",
-        "RecordId": 106,
-        "DoctorId": 8,
+        "RecordId": "MR6",
+        "DoctorId": "D5",
         "Diagnosis": "HMMM",
         "Treatment": "PIIIIIIIIIIIILLLSSSS"
       }
     },
     {
-      "PatientId": 7,
+      "PatientId": "P7",
       "Name": "Ann",
       "Surname": "Did",
       "Address": "Hmm",
@@ -100,10 +100,25 @@
       "Email": "anndid@gmail.com",
       "MedicalRecord": {
         "RecordCreationDate": "2024-12-01T00:33:47.0254525+02:00",
-        "RecordId": 107,
-        "DoctorId": 11,
+        "RecordId": "MR7",
+        "DoctorId": "D7",
         "Diagnosis": "Headache",
         "Treatment": "Rest"
+      }
+    },
+    {
+      "PatientId": "P8",
+      "Name": "wefw",
+      "Surname": "fwef",
+      "Address": "we",
+      "PhoneNumber": "0988568798",
+      "Email": "qeq@fwf.cod",
+      "MedicalRecord": {
+        "RecordCreationDate": "2024-12-02T23:18:12.3142977+02:00",
+        "RecordId": "MR8",
+        "DoctorId": "D1",
+        "Diagnosis": "fwsfwe",
+        "Treatment": "fwefw"
       }
     }
   ]

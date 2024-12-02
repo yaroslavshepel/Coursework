@@ -13,7 +13,12 @@ public class PatientsArray
     
     public static void AddPatient(string name, string surname, string address, string phoneNumber, string email, MedicalRecordClass medicalRecord)
     {
-        _patients.Add(new PatientClass(_patients.Last().PatientId + 1, name, surname, address, phoneNumber, email, medicalRecord));
+        string patientId = _patients.Last().PatientId;
+        string patientIdTrimmed = patientId.Trim('P');
+        int patientIdNumber = int.Parse(patientIdTrimmed);
+        string newPatientId = $"P{patientIdNumber + 1}";
+        
+        _patients.Add(new PatientClass(newPatientId, name, surname, address, phoneNumber, email, medicalRecord));
         _numberOfPatients++;
     }
     

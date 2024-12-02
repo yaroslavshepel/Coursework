@@ -4,7 +4,7 @@ namespace BusinessLogic.Patients;
 
 public class PatientClass
 {
-    private int _patientId;
+    private string _patientId;
     private string _name;
     private string _surname;
     private string _address;
@@ -13,7 +13,7 @@ public class PatientClass
     //private string _medicalRecord;
     private MedicalRecordClass _medicalRecord;
     
-    public int PatientId { get => _patientId; set => _patientId = value; }
+    public string PatientId { get => _patientId; set => _patientId = value; }
     public string Name { get => _name; set => _name = value; }
     public string Surname { get => _surname; set => _surname = value; }
     public string Address { get => _address; set => _address = value; }
@@ -22,7 +22,7 @@ public class PatientClass
     //public string MedicalRecord { get => _medicalRecord; set => _medicalRecord = value; }
     public MedicalRecordClass MedicalRecord { get => _medicalRecord; set => _medicalRecord = value; }
 
-    public PatientClass(int patientId, string name, string surname, string address, string phoneNumber, string email, MedicalRecordClass medicalRecord)
+    public PatientClass(string patientId, string name, string surname, string address, string phoneNumber, string email, MedicalRecordClass medicalRecord)
     {
         _patientId = patientId;
         _name = name;

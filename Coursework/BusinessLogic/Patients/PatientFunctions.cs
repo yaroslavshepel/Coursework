@@ -11,7 +11,7 @@ public class PatientFunctions
     private static string _patientEmail = "";
     private static string _patientDiagnosis = "";
     private static string _patientTreatment = "";
-    private static int _doctorId = 0;
+    private static string _doctorId = "";
 
     public static Task AddPatient()
     {
@@ -24,7 +24,7 @@ public class PatientFunctions
         
         _patientDiagnosis = InputValidator.Validator("Enter the patient's diagnosis: ", "diagnosis", "data");
         DoctorsFunctions.PrintDoctors("IDs and specializations");
-        _doctorId = Convert.ToInt32(InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID"));
+        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID");
         
         _patientTreatment = InputValidator.Validator("Enter the patient's treatment: ", "treatment", "data");
         
@@ -64,7 +64,7 @@ public class PatientFunctions
         {
             var newDiagnosis = InputValidator.Validator("Enter the new diagnosis: ", "diagnosis", "data");
             DoctorsFunctions.PrintDoctors("IDs and specializations");
-            _doctorId = Convert.ToInt32(InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID"));
+            _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID");
             var newTreatment = InputValidator.Validator("Enter the new treatment: ", "treatment", "data");
 
             var medicalRecord = new MedicalRecordClass();

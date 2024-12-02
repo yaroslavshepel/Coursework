@@ -5,20 +5,20 @@ namespace BusinessLogic.MedicalRecords;
 public class MedicalRecordClass
 {
     private DateTime _recordCreationDate;
-    private int _recordId;
-    private int _doctorId;
+    private string _recordId;
+    private string _doctorId;
     private string _diagnosis = "";
     private string _treatment = "";
     
     public MedicalRecordClass() { }
     
     public DateTime RecordCreationDate { get => _recordCreationDate; set => _recordCreationDate = value; }
-    public int RecordId { get => _recordId; set => _recordId = value; }
-    public int DoctorId { get => _doctorId; set => _doctorId = value; }
+    public string RecordId { get => _recordId; set => _recordId = value; }
+    public string DoctorId { get => _doctorId; set => _doctorId = value; }
     public string Diagnosis { get => _diagnosis; set => _diagnosis = value; }
     public string Treatment { get => _treatment; set => _treatment = value; }
     
-    public MedicalRecordClass(DateTime recordCreationDate, int recordId, int doctorId, string diagnosis, string treatment)
+    public MedicalRecordClass(DateTime recordCreationDate, string recordId, string doctorId, string diagnosis, string treatment)
     {
         _recordCreationDate = recordCreationDate;
         _recordId = recordId;
@@ -27,12 +27,16 @@ public class MedicalRecordClass
         _treatment = treatment;
     }
     
-    public static MedicalRecordClass AddRecord(int doctorId, string diagnosis, string treatment)
+    public static MedicalRecordClass AddRecord(string doctorId, string diagnosis, string treatment)
     {
-        return new MedicalRecordClass(DateTime.Now, PatientsArray.Patients.Last().MedicalRecord.RecordId + 1, doctorId, diagnosis, treatment);
+        string recordId = PatientsArray.Patients.Last().MedicalRecord.RecordId;
+        string patientIdTrimmed = recordId.Trim('R', 'M');
+        int recordIdNumber = int.Parse(patientIdTrimmed);
+        string newRecordId = $"MR{recordIdNumber + 1}";
+        return new MedicalRecordClass(DateTime.Now, newRecordId, doctorId, diagnosis, treatment);
     }
 
-    public MedicalRecordClass EditRecord(int recordId, int doctorId, string diagnosis, string treatment)
+    public MedicalRecordClass EditRecord(string recordId, string doctorId, string diagnosis, string treatment)
     {
         RecordId = recordId;
         DoctorId = doctorId;

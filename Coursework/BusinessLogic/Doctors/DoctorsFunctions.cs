@@ -6,6 +6,7 @@ public class DoctorsFunctions
     private static string _surname = "";
     private static string _specialization = "";
     private static string _phoneNumber = "";
+    private static List<DateTime> hours = new();
     
     public static Task AddDoctor()
     {
@@ -15,7 +16,21 @@ public class DoctorsFunctions
         _specialization = InputValidator.Validator("Enter the doctor's specialization: ", "specialization", "data");
         _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number", "phone number");
         
-        DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber);
+        string inputHour = "1";
+        Console.WriteLine("Enter the new time: ");
+        //var inputHour = Console.ReadLine();
+        // var hours = new List<DateTime>();
+        DateTime start = DateTime.Today.AddHours(8);
+        DateTime end = DateTime.Today.AddHours(12);
+        while (start < end)
+        {
+            inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30): ", "time", "hour");
+            if (inputHour == "STOP") { break; }
+            hours.Add(DateTime.TryParse(inputHour, out DateTime inputTime) ? inputTime : throw new ArgumentException("Invalid time."));
+            //start = start.AddMinutes(30);
+        }
+        
+        DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, hours);
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
         //DoctorsArray.NumberOfDoctors++;
         Console.WriteLine("Doctor added successfully.");
@@ -37,7 +52,25 @@ public class DoctorsFunctions
         var newSurname = InputValidator.Validator("Enter the new surname: ", "surname", "data");
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "specialization", "data");
         var newPhoneNumber = InputValidator.Validator("Enter the new phone number: ", "phone number", "phone number");
-        doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber);
+        Console.WriteLine("New list of hours when doctor is available is optional. Press Enter to skip.");
+        
+        if (Console.ReadKey().Key != ConsoleKey.Enter)
+        {
+            string inputHour = "1";
+            Console.WriteLine("Enter the new time: ");
+            //var inputHour = Console.ReadLine();
+            // var hours = new List<DateTime>();
+            DateTime start = DateTime.Today.AddHours(8);
+            DateTime end = DateTime.Today.AddHours(12);
+            while (start < end && inputHour != "")
+            {
+                inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30): ", "time",
+                "hour");
+                hours.Add(DateTime.TryParse(inputHour, out DateTime inputTime) ? inputTime : throw new ArgumentException("Invalid time."));
+                //start = start.AddMinutes(30);
+            }
+        }
+        doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber, hours);
         Console.Clear();
         Console.WriteLine("Doctor edited successfully.");
     }
@@ -83,8 +116,7 @@ public class DoctorsFunctions
                                       $"Name: {doctors[i].Name}, " +
                                       $"Surname: {doctors[i].Surname}, " +
                                       $"Specialization: {doctors[i].Specialization}, " +
-                                      $"Phone Number: {doctors[i].PhoneNumber}");
-                }
+                                      $"Phone Number: {doctors[i].PhoneNumber}\n" + doctors[i].GetAvailableHours());          }
                 break;
             }
             case "IDs and specializations":
