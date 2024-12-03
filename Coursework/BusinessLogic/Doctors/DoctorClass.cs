@@ -70,7 +70,7 @@ public class DoctorClass
     //     _availableHours = GenerateDefaultAvailableHours();
     // }
 
-    public List<DateTime> GenerateDefaultAvailableHours()
+    public static List<DateTime> GenerateDefaultAvailableHours()
     {
         var hours = new List<DateTime>();
         DateTime start = DateTime.Today.AddHours(8);

@@ -1,5 +1,5 @@
 {
-  "NumberOfDoctors": 10,
+  "NumberOfDoctors": 14,
   "Doctors": [
     {
       "DoctorId": "D001",
@@ -169,6 +169,54 @@
         "2023-12-01T10:30:00",
         "2023-12-01T11:00:00",
         "2023-12-01T11:30:00"
+      ]
+    },
+    {
+      "DoctorId": "D011",
+      "Name": "John",
+      "Surname": "Price",
+      "Specialization": "Surgery",
+      "PhoneNumber": "0988567456",
+      "AvailableHours": [
+        "2024-12-03T08:00:00+02:00",
+        "2024-12-03T08:30:00+02:00",
+        "2024-12-03T09:00:00+02:00",
+        "2024-12-03T09:30:00+02:00",
+        "2024-12-03T10:00:00+02:00",
+        "2024-12-03T10:30:00+02:00",
+        "2024-12-03T11:00:00+02:00",
+        "2024-12-03T11:30:00+02:00"
+      ]
+    },
+    {
+      "DoctorId": "D012",
+      "Name": "dvdsv",
+      "Surname": "sdvdd",
+      "Specialization": "dsvdvs",
+      "PhoneNumber": "0989889281",
+      "AvailableHours": [
+        "2024-12-03T09:30:00"
+      ]
+    },
+    {
+      "DoctorId": "D013",
+      "Name": "vsdv",
+      "Surname": "vsdv",
+      "Specialization": "bsbbb",
+      "PhoneNumber": "0989889281",
+      "AvailableHours": [
+        "2024-12-03T10:00:00"
+      ]
+    },
+    {
+      "DoctorId": "D014",
+      "Name": "dsvsg",
+      "Surname": "gwegw",
+      "Specialization": "wegwg",
+      "PhoneNumber": "0879895684",
+      "AvailableHours": [
+        "2024-01-01T09:00:00",
+        "2024-12-04T11:30:00"
       ]
     }
   ]

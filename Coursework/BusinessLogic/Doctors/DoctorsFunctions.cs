@@ -15,20 +15,35 @@ public class DoctorsFunctions
         _surname = InputValidator.Validator("Enter the doctor's surname: ", "surname", "data");
         _specialization = InputValidator.Validator("Enter the doctor's specialization: ", "specialization", "data");
         _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number", "phone number");
-        
-        string inputHour = "1";
-        Console.WriteLine("Enter the new time: ");
-        //var inputHour = Console.ReadLine();
-        // var hours = new List<DateTime>();
-        DateTime start = DateTime.Today.AddHours(8);
-        DateTime end = DateTime.Today.AddHours(12);
-        while (start < end)
+        //string inputHour = "AAA";
+        while (true)
         {
-            inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30): ", "time", "hour");
-            if (inputHour == "STOP") { break; }
-            hours.Add(DateTime.TryParse(inputHour, out DateTime inputTime) ? inputTime : throw new ArgumentException("Invalid time."));
-            //start = start.AddMinutes(30);
+            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30) or type 'STOP' to finish: ", "time", "hour");
+            //Console.WriteLine(inputHour);
+            if (inputHour == "0")
+            {
+                break;
+            }
+            else if (DateTime.TryParse(inputHour, out DateTime inputTime))
+            {
+                hours.Add(inputTime);
+            }
+            /*string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30) or type 'STOP' to finish: ", "time", "data");
+            if (inputHour.ToUpper() == "STOP")
+            {
+                break;
+            }
+            if (DateTime.TryParse(inputHour, out DateTime inputTime))
+            {
+                hours.Add(inputTime);
+            }
+            else
+            {
+                Console.WriteLine("Invalid time format. Please try again.");
+            }*/
         }
+        
+        //hours = DoctorClass.GenerateDefaultAvailableHours();
         
         DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, hours);
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
@@ -52,25 +67,7 @@ public class DoctorsFunctions
         var newSurname = InputValidator.Validator("Enter the new surname: ", "surname", "data");
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "specialization", "data");
         var newPhoneNumber = InputValidator.Validator("Enter the new phone number: ", "phone number", "phone number");
-        Console.WriteLine("New list of hours when doctor is available is optional. Press Enter to skip.");
-        
-        if (Console.ReadKey().Key != ConsoleKey.Enter)
-        {
-            string inputHour = "1";
-            Console.WriteLine("Enter the new time: ");
-            //var inputHour = Console.ReadLine();
-            // var hours = new List<DateTime>();
-            DateTime start = DateTime.Today.AddHours(8);
-            DateTime end = DateTime.Today.AddHours(12);
-            while (start < end && inputHour != "")
-            {
-                inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30): ", "time",
-                "hour");
-                hours.Add(DateTime.TryParse(inputHour, out DateTime inputTime) ? inputTime : throw new ArgumentException("Invalid time."));
-                //start = start.AddMinutes(30);
-            }
-        }
-        doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber, hours);
+        doctor.EditDoctor(doctor.DoctorId, newName, newSurname, newSpecialization, newPhoneNumber, doctor.AvailableHours);
         Console.Clear();
         Console.WriteLine("Doctor edited successfully.");
     }

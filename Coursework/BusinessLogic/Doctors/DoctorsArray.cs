@@ -13,7 +13,12 @@ public class DoctorsArray
         string doctorId = _doctors.Last().DoctorId;
         string doctorIdTrimmed = doctorId.Trim('D');
         int doctorIdNumber = int.Parse(doctorIdTrimmed);
-        string newDoctorId = $"D{doctorIdNumber + 1}";
+        int anotherNum = 00;
+        if (doctorIdNumber >= 10)
+        {
+            anotherNum = 0;
+        }
+        string newDoctorId = $"D{anotherNum}{doctorIdNumber + 1}";
         Doctors.Add(new DoctorClass(newDoctorId, name, surname, specialization, phoneNumber, availableHours));
         _numberOfDoctors++;
     }

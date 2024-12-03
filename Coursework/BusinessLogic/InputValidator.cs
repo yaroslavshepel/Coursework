@@ -153,6 +153,10 @@ public static class InputValidator
 
                     break;
                 case "hour":
+                    if (_input == "STOP")
+                    {
+                        return "STOP";
+                    }
                     if (!DateTime.TryParse(_input, out DateTime inputTime) ||
                         inputTime.TimeOfDay < TimeSpan.FromHours(8) ||
                         inputTime.TimeOfDay > TimeSpan.FromHours(12) ||
@@ -171,7 +175,7 @@ public static class InputValidator
                     break;
             }
 
-            _input = Console.ReadLine() ?? string.Empty; // Read input again if the previous input was invalid
+            //_input = Console.ReadLine() ?? string.Empty; // Read input again if the previous input was invalid
         }
 
         return "0"; // Return an empty string if "STOP" is entered
