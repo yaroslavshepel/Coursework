@@ -6,9 +6,10 @@ class Program : Functions
     public static async Task Main()
     {
         var isStopped = true;
+        await WorkWithFiles.ReadFiles();
         while (isStopped)
         {
-            await WorkWithFiles.ReadFiles();
+            
             Console.WriteLine(ConsoleMenu.MainMenu());
             var choice = Console.ReadKey().Key;
             // var choice = Convert.ToInt32(Console.ReadLine());
@@ -31,7 +32,7 @@ class Program : Functions
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
                     Console.Clear();
-                    ManagementOfReceptionSchedule();
+                    await ManagementOfReceptionSchedule();
                     break;
                 // case 4:
                 case ConsoleKey.NumPad4:
@@ -46,6 +47,7 @@ class Program : Functions
                     isStopped = false;
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Please press a valid key.");
                     break;
             }

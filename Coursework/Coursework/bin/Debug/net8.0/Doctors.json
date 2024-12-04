@@ -1,5 +1,5 @@
 {
-  "NumberOfDoctors": 14,
+  "NumberOfDoctors": 15,
   "Doctors": [
     {
       "DoctorId": "D001",
@@ -194,9 +194,7 @@
       "Surname": "sdvdd",
       "Specialization": "dsvdvs",
       "PhoneNumber": "0989889281",
-      "AvailableHours": [
-        "2024-12-03T09:30:00"
-      ]
+      "AvailableHours": []
     },
     {
       "DoctorId": "D013",
@@ -204,9 +202,7 @@
       "Surname": "vsdv",
       "Specialization": "bsbbb",
       "PhoneNumber": "0989889281",
-      "AvailableHours": [
-        "2024-12-03T10:00:00"
-      ]
+      "AvailableHours": []
     },
     {
       "DoctorId": "D014",
@@ -217,6 +213,23 @@
       "AvailableHours": [
         "2024-01-01T09:00:00",
         "2024-12-04T11:30:00"
+      ]
+    },
+    {
+      "DoctorId": "D015",
+      "Name": "wefwe",
+      "Surname": "fewfw",
+      "Specialization": "gwgwg",
+      "PhoneNumber": "0988567895",
+      "AvailableHours": [
+        "2024-12-04T08:00:00+02:00",
+        "2024-12-04T08:30:00+02:00",
+        "2024-12-04T09:00:00+02:00",
+        "2024-12-04T09:30:00+02:00",
+        "2024-12-04T10:00:00+02:00",
+        "2024-12-04T10:30:00+02:00",
+        "2024-12-04T11:00:00+02:00",
+        "2024-12-04T11:30:00+02:00"
       ]
     }
   ]

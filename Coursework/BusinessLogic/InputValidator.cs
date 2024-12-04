@@ -78,6 +78,7 @@
 // }
 
 using BusinessLogic.Doctors;
+using BusinessLogic.Patients;
 
 namespace BusinessLogic;
 using System;
@@ -134,14 +135,15 @@ public static class InputValidator
                     }
 
                     break;
-                case "doctor ID":
-                    if (!Regex.IsMatch(_input, @"^D[0-9]+$") || string.IsNullOrEmpty(_input))
+                case "ID":
+                    if (!Regex.IsMatch(_input, @"^[DP][0-9]+$") || string.IsNullOrEmpty(_input))
                     {
                         WrongInput(whatIsAsked);
                     }
                     else
                     {
-                        if (DoctorsArray.Doctors.Find(d => d.DoctorId == _input) == null)
+                        if (DoctorsArray.Doctors.Find(d => d.DoctorId == _input) == null && 
+                            PatientsArray.Patients.Find(p => p.PatientId == _input) == null)
                         {
                             WrongInput(whatIsAsked);
                         }
@@ -180,10 +182,29 @@ public static class InputValidator
 
         return "0"; // Return an empty string if "STOP" is entered
     }
+
+    public static DateTime ValidatorDate(string request, string typeOfRequest)
+    {
+        Console.WriteLine(request);
+        _input = Console.ReadLine() ?? string.Empty;
+        while (true)
+        {
+            if (DateTime.TryParse(_input, out DateTime inputDate))
+            {
+                return inputDate;
+            }
+            else
+            {
+                WrongInput(typeOfRequest);
+            }
+        }
+    }
     
          private static void WrongInput(string reason)
      {
          Console.WriteLine($"Please enter a valid {reason}.");
          _input = Console.ReadLine() ?? string.Empty;
      }
+
+     
 }

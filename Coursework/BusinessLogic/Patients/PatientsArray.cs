@@ -13,15 +13,29 @@ public class PatientsArray
     
     public static void AddPatient(string name, string surname, string address, string phoneNumber, string email, MedicalRecordClass medicalRecord)
     {
-        string patientId = _patients.Last().PatientId;
-        string patientIdTrimmed = patientId.Trim('P');
-        int patientIdNumber = int.Parse(patientIdTrimmed);
-        int anotherNum = 00;
-        if (patientIdNumber >= 10)
+        string newPatientId = "";
+        if (_numberOfPatients == 0)
         {
-            anotherNum = 0;
+            newPatientId = "P001";
         }
-        string newPatientId = $"P{anotherNum}{patientIdNumber + 1}";
+        else
+        {
+            string patientId = _patients.Last().PatientId;
+            string patientIdTrimmed = patientId.Trim('P');
+            int patientIdNumber = int.Parse(patientIdTrimmed);
+            
+            if (patientIdNumber < 10)
+            {
+                newPatientId = $"P00{patientIdNumber + 1}";
+            } else if (patientIdNumber < 100)
+            {
+                newPatientId = $"P0{patientIdNumber + 1}";
+            }
+            else if (patientIdNumber < 1000)
+            {
+                newPatientId = $"P{patientIdNumber + 1}";
+            }
+        }
         _patients.Add(new PatientClass(newPatientId, name, surname, address, phoneNumber, email, medicalRecord));
         _numberOfPatients++;
     }
@@ -32,16 +46,8 @@ public class PatientsArray
         _numberOfPatients--;
     }
     
-    //TODO: Implement the following methods
-    //! public PatientsArray ElectronicMedicalRecord(PatientClass patient)
-    // {
-    //     patient.ElectronicMedicalRecord();
-    //     return this;
-    // }
-    
-    // public PatientsData MakeAppointment(PatientClass patient, DoctorClass doctor, DateTime date)
-    // {
-    //     patient.MakeAppointment(doctor, date);
-    //     return this;
-    // }
+    public static PatientClass? FindPatientByName(string name, string surname)
+    {
+        return _patients.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase) && p.Surname.Equals(surname, StringComparison.OrdinalIgnoreCase));
+    }
 }

@@ -1,9 +1,9 @@
-﻿using BusinessLogic.Schedule;
-
+﻿
 namespace Coursework;
 using BusinessLogic;
 using BusinessLogic.Doctors;
 using BusinessLogic.Patients;
+using BusinessLogic.Schedule;   
 
 public class Functions
 {
@@ -14,35 +14,29 @@ public class Functions
         {
             Console.WriteLine(ConsoleMenu.ManagementOfDoctorsMenu());
             var choice = Console.ReadKey().Key;
-            // var choice = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             switch (choice)
             {
-                //case 1:
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
                     Console.Clear();
                     await DoctorsFunctions.AddDoctor();
                     break;
-                // case 2:
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
                     Console.Clear();
                     DoctorsFunctions.EditDoctor();
                     break;
-                // case 3:
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
                     Console.Clear();
                     DoctorsFunctions.RemoveDoctor();
                     break;
-                // case 4:
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
                     Console.Clear();
                     DoctorsFunctions.PrintDoctors("all");
                     break;
-                // case 5:
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:
                     await WorkWithFiles.WriteToFiles();
@@ -50,6 +44,7 @@ public class Functions
                     isStopped = false;
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Please press a valid key.");
                     break;
             }
@@ -93,13 +88,14 @@ public class Functions
                     isStopped = false;
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Please press a valid key.");
                     break;
             }
         }
     }
     
-    protected static void ManagementOfReceptionSchedule()
+    protected static async Task ManagementOfReceptionSchedule()
     {
         var isStopped = true;
         while (isStopped)
@@ -112,22 +108,27 @@ public class Functions
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
                     Console.Clear();
-                    // AddReceptionSchedule();
+                    await ScheduleFunctions.AddScheduleToDoctor();
                     break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
                     Console.Clear();
-                    // DeleteReceptionSchedule();
+                    await ScheduleFunctions.MakeAppointment();
                     break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
                     Console.Clear();
-                    // EditReceptionSchedule();
+                    ScheduleFunctions.EditDoctorsSchedule();
                     break;
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
                     Console.Clear();
                     ScheduleFunctions.PrintSchedule();
+                    break;
+                case ConsoleKey.NumPad5:
+                case ConsoleKey.D5:
+                    Console.Clear();
+                    ScheduleFunctions.PrintDoctorsSchedule();
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:
@@ -135,6 +136,7 @@ public class Functions
                     isStopped = false;
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("Please press a valid key.");
                     break;
             }
@@ -154,17 +156,17 @@ public class Functions
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
                     Console.Clear();
-                    // SearchPatient();
+                    BusinessLogic.Search.SearchPatient();
                     break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
                     Console.Clear();
-                    // SearchDoctor();
+                    BusinessLogic.Search.SearchDoctor();
                     break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
                     Console.Clear();
-                    // GetDoctorSchedule();
+                    BusinessLogic.Search.GetDoctorSchedule();
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:

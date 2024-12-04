@@ -2,11 +2,12 @@
 
 public class DoctorsFunctions
 {
+    private static string _doctorId = "";
     private static string _name = "";
     private static string _surname = "";
     private static string _specialization = "";
     private static string _phoneNumber = "";
-    private static List<DateTime> hours = new();
+    private static List<DateTime> _hours = new();
     
     public static Task AddDoctor()
     {
@@ -29,8 +30,8 @@ public class DoctorsFunctions
         }*/
         
         //hours = DoctorClass.GenerateDefaultAvailableHours();
-        hours = DoctorClass.GenerateDefaultAvailableHours();
-        DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, hours);
+        _hours = DoctorClass.GenerateDefaultAvailableHours();
+        DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, _hours);
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
         //DoctorsArray.NumberOfDoctors++;
         Console.WriteLine("Doctor added successfully.");
@@ -45,9 +46,7 @@ public class DoctorsFunctions
         _name = InputValidator.Validator("Enter name of doctor to edit: ", "name", "data");
         _surname = InputValidator.Validator("Enter surname of doctor to edit: ", "surname", "data");
 
-        DoctorClass doctor = doctors.Find(d => d.Name == _name && d.Surname == _surname);
-                             //?? Console.WriteLine("Doctor not found."));
-        if (doctor == null) { Console.WriteLine("Doctor not found."); return; }
+        DoctorClass doctor = doctors.Find(d => d.Name == _name && d.Surname == _surname) ?? new DoctorClass();
         var newName = InputValidator.Validator("Enter the new name: ", "name", "data");
         var newSurname = InputValidator.Validator("Enter the new surname: ", "surname", "data");
         var newSpecialization = InputValidator.Validator("Enter the new specialization: ", "specialization", "data");
@@ -59,7 +58,6 @@ public class DoctorsFunctions
     
     public static void RemoveDoctor()
     {
-        //var doctors = DoctorsArray.GetDoctors();
         var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0)
         {
@@ -67,19 +65,12 @@ public class DoctorsFunctions
             return;
         }
 
-        _name = InputValidator.Validator("Enter name of doctor to remove: ", "name", "data");
-        _surname = InputValidator.Validator("Enter surname of doctor to remove: ", "surname", "data");
-
-        var doctor = doctors.Find(d => d.Name == _name && d.Surname == _surname);
-        if (doctor == null)
-        {
-            Console.WriteLine("Doctor not found.");
-            return;
-        }
+        PrintDoctors("all");
+        
+        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
+        DoctorClass doctor = doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
 
         DoctorsArray.RemoveDoctor(doctor);
-        //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() - 1);
-        //DoctorsArray.NumberOfDoctors--;
         Console.Clear();
         Console.WriteLine("Doctor removed successfully.");
     }
@@ -98,7 +89,8 @@ public class DoctorsFunctions
                                       $"Name: {doctors[i].Name}, " +
                                       $"Surname: {doctors[i].Surname}, " +
                                       $"Specialization: {doctors[i].Specialization}, " +
-                                      $"Phone Number: {doctors[i].PhoneNumber}\n" + doctors[i].GetAvailableHours());          }
+                                      $"Phone Number: {doctors[i].PhoneNumber}\n" + doctors[i].GetAvailableHours());
+                }
                 break;
             }
             case "IDs and specializations":

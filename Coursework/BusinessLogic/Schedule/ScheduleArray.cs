@@ -8,46 +8,51 @@ public class ScheduleArray
     public static int NumberOfScheduleRecords 
     { get => _numberOfScheduleRecords; set => _numberOfScheduleRecords = value; }
     public static List<ScheduleClass> Schedule { get => _schedule; set => _schedule = value; }
-
+    
    public static void AddScheduleRecord(string doctorId, string patientId, DateTime date)
     {
-        string scheduleRecordId = _schedule.Last().ScheduleRecordId;
-        string scheduleTrimmed = doctorId.Trim('S');
-        int recordrIdNumber = int.Parse(scheduleTrimmed);
-        int anotherNum = 00;
-        if (recordrIdNumber >= 10)
+        string newScheduleId = "";
+        if (_schedule.Count == 0)
         {
-            anotherNum = 0;
+            newScheduleId = "S001";
         }
-        string newScheduleId = $"S{anotherNum}{recordrIdNumber + 1}";
+        else
+        {
+            string scheduleRecordId = _schedule.Last().ScheduleRecordId;
+            string scheduleTrimmed = scheduleRecordId.Trim('S');
+            int recordIdNumber = int.Parse(scheduleTrimmed);
+            if (recordIdNumber < 10)
+            {
+                newScheduleId = $"S00{recordIdNumber + 1}";
+            }  else if (recordIdNumber < 100)
+            {
+                newScheduleId = $"S0{recordIdNumber + 1}";
+            } else if (recordIdNumber < 1000)
+            {
+                newScheduleId = $"S{recordIdNumber + 1}";
+            }
+        }
+        
         Schedule.Add(new ScheduleClass(newScheduleId, doctorId, patientId, date));
         _numberOfScheduleRecords++;
     }
-
-    public static void RemoveRecord(ScheduleClass record)
+   
+    public static void RemoveScheduleRecord(string id)
     {
-        _schedule.Remove(record);
+        var schedule = new ScheduleClass();
+        if (id.Contains("D"))
+        {
+            schedule = Schedule.Find(s => s.DoctorId == id) ?? new ScheduleClass();
+        } else if (id.Contains("P"))
+        {
+            schedule = Schedule.Find(s => s.PatientId == id) ?? new ScheduleClass();
+        }
+        Schedule.Remove(schedule);
         _numberOfScheduleRecords--;
     }
-
-    // public static bool EditScheduleRecord(int index, string doctorId, string patientId, DateTime date)
-    // {
-    //     if (index < 0 || index >= _numberOfScheduleRecords)
-    //     {
-    //         return false;
-    //     }
-    //     Schedule[index] = new ScheduleClass(doctorId, patientId, date);
-    //     return true;
-    // }
-
-    public static bool MakeAppointment(string doctorId, string patientId, DateTime date)
+    
+    public static List<ScheduleClass> GetDoctorSchedule(string doctorId, DateTime date)
     {
-        var existingRecord = Schedule.FirstOrDefault(s => s.DoctorId == doctorId && s.RecordDate == date);
-        if (existingRecord != null)
-        {
-            return false; // Appointment slot already taken
-        }
-        AddScheduleRecord(doctorId, patientId, date);
-        return true;
+        return _schedule.Where(s => s.DoctorId == doctorId && s.RecordDate.Date == date.Date).ToList();
     }
 }

@@ -10,15 +10,29 @@ public class DoctorsArray
     
     public static void AddDoctor(string name, string surname, string specialization, string phoneNumber, List<DateTime> availableHours)
     {
-        string doctorId = _doctors.Last().DoctorId;
-        string doctorIdTrimmed = doctorId.Trim('D');
-        int doctorIdNumber = int.Parse(doctorIdTrimmed);
-        int anotherNum = 00;
-        if (doctorIdNumber >= 10)
+        string newDoctorId = "";
+        if (_doctors.Count == 0)
         {
-            anotherNum = 0;
+            newDoctorId = "D001";
         }
-        string newDoctorId = $"D{anotherNum}{doctorIdNumber + 1}";
+        else
+        {
+            string doctorId = _doctors.Last().DoctorId;
+            string doctorIdTrimmed = doctorId.Trim('D');
+            int doctorIdNumber = int.Parse(doctorIdTrimmed);
+            
+            if (doctorIdNumber < 10)
+            {
+                newDoctorId = $"D00{doctorIdNumber + 1}";
+            } else if (doctorIdNumber < 100)
+            {
+                newDoctorId = $"D0{doctorIdNumber + 1}";
+            }
+            else if (doctorIdNumber < 1000)
+            {
+                newDoctorId = $"D{doctorIdNumber + 1}";
+            }
+        }
         Doctors.Add(new DoctorClass(newDoctorId, name, surname, specialization, phoneNumber, availableHours));
         _numberOfDoctors++;
     }
@@ -33,6 +47,8 @@ public class DoctorsArray
     {
         return Doctors;
     }
-    
-    
+    public static DoctorClass? FindDoctorByName(string name, string surname)
+    {
+        return _doctors.FirstOrDefault(d => d.Name.Equals(name, StringComparison.OrdinalIgnoreCase) && d.Surname.Equals(surname, StringComparison.OrdinalIgnoreCase));
+    }
 }

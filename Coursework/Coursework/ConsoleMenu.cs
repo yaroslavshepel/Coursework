@@ -33,11 +33,11 @@ public static class ConsoleMenu
     
     public static string ManagementOfReceptionScheduleMenu()
     {
-        return "1. Add a reception schedule\n" +
-               "2. Remove a reception schedule\n" +
+        return "1. Add a schedule to doctor\n" +
+               "2. Make an appointment with a doctor\n" +
                "3. Edit a reception schedule\n" +
                "4. View all reception schedules\n" +
-               "5. Make an appointment with a doctor\n" +
+               "5. View doctors' schedules\n" +
                "0. Back to main menu";
     }
     

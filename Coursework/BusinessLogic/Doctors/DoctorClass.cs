@@ -1,40 +1,4 @@
-﻿// namespace BusinessLogic.Doctors;
-//
-// public class DoctorClass
-// {
-//     private string _doctorId = "";
-//     private string _name = "";
-//     private string _surname = "";
-//     private string _specialization = "";
-//     private string _phoneNumber = "";
-//     
-//     public string DoctorId { get => _doctorId; set => _doctorId = value; }
-//     public string Name { get => _name; set => _name = value; }
-//     public string Surname { get => _surname; set => _surname = value; }
-//     public string Specialization { get => _specialization; set => _specialization = value; }
-//     public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
-//     
-//     public DoctorClass(string doctorId, string name, string surname, string specialization, string phoneNumber)
-//     {
-//         DoctorId = doctorId;
-//         Name = name;
-//         Surname = surname;
-//         Specialization = specialization;
-//         PhoneNumber = phoneNumber;
-//     }
-//     
-//     public DoctorClass EditDoctor(string doctorId, string name, string surname, string specialization, string phoneNumber)
-//     {
-//         DoctorId = doctorId;
-//         Name = name;
-//         Surname = surname;
-//         Specialization = specialization;
-//         PhoneNumber = phoneNumber;
-//         return new DoctorClass(doctorId, name, surname, specialization, phoneNumber);
-//     }
-// }
-
-namespace BusinessLogic.Doctors;
+﻿namespace BusinessLogic.Doctors;
 
 public class DoctorClass
 {
@@ -43,7 +7,7 @@ public class DoctorClass
     private string _surname = "";
     private string _specialization = "";
     private string _phoneNumber = "";
-    private List<DateTime> _availableHours;
+    private List<DateTime> _availableHours = new List<DateTime>();
 
     public string DoctorId { get => _doctorId; set => _doctorId = value; }
     public string Name { get => _name; set => _name = value; }
@@ -52,6 +16,8 @@ public class DoctorClass
     public string PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
     public List<DateTime> AvailableHours { get => _availableHours; set => _availableHours = value; }
 
+    public DoctorClass(){}
+    
     public DoctorClass(string doctorId, string name, string surname, string specialization, string phoneNumber, List<DateTime> availableHours)
     {
         _doctorId = doctorId;
@@ -61,14 +27,6 @@ public class DoctorClass
         _phoneNumber = phoneNumber;
         _availableHours = availableHours;
     }
-    // {
-    //     _doctorId = doctorId;
-    //     _name = name;
-    //     _surname = surname;
-    //     _specialization = specialization;
-    //     _phoneNumber = phoneNumber;
-    //     _availableHours = GenerateDefaultAvailableHours();
-    // }
 
     public static List<DateTime> GenerateDefaultAvailableHours()
     {
@@ -81,16 +39,6 @@ public class DoctorClass
             start = start.AddMinutes(30);
         }
         return hours;
-    }
-
-    public void AddAvailableHour(DateTime hour)
-    {
-        _availableHours.Add(hour);
-    }
-
-    public void RemoveAvailableHour(DateTime hour)
-    {
-        _availableHours.Remove(hour);
     }
     
     public DoctorClass EditDoctor(string doctorId, 
@@ -107,11 +55,18 @@ public class DoctorClass
     
     public string GetAvailableHours()
     {
-        string hours = "";
-        foreach (var hour in _availableHours)
-        {
-            hours += $"{hour}, \n";
-        }
-        return hours;
+       if (_availableHours.Count > 0)
+       {
+            string hours = "";
+
+            for (int i = 0; i < _availableHours.Count - 1; i++)
+            {
+                hours += $"{_availableHours[i]}, \n";
+            }
+
+            hours += $"{_availableHours.Last()}.\n";
+            return hours;
+       }
+       return "No available hours.";
     }
 }

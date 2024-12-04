@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic.Patients;
+﻿using BusinessLogic.Schedule;
+
+namespace BusinessLogic.Patients;
 using MedicalRecords;
 using Doctors;
 
@@ -12,6 +14,7 @@ public class PatientFunctions
     private static string _patientDiagnosis = "";
     private static string _patientTreatment = "";
     private static string _doctorId = "";
+    private static string _patientId = "";
 
     public static Task AddPatient()
     {
@@ -43,16 +46,11 @@ public class PatientFunctions
             Console.WriteLine("There are no patients in the system.");
             return;
         }
+        PrintPatients();
+        
+        _patientId = InputValidator.Validator("Enter the patient's ID: ", "ID", "ID");
 
-        _patientName = InputValidator.Validator("Enter name of patient to edit: ", "name", "data");
-        _patientSurname = InputValidator.Validator("Enter surname of patient to edit: ", "surname", "data");
-
-        PatientClass patient = patients.Find(p => p.Name == _patientName && p.Surname == _patientSurname);
-        if (patient == null)
-        {
-            Console.WriteLine("Patient not found.");
-            return;
-        }
+        PatientClass patient = patients.Find(p => p.PatientId == _patientId) ?? new PatientClass();
 
         var newName = InputValidator.Validator("Enter the new name: ", "name", "data");
         var newSurname = InputValidator.Validator("Enter the new surname: ", "surname", "data");
@@ -90,17 +88,15 @@ public class PatientFunctions
             Console.WriteLine("There are no patients in the system.");
             return;
         }
-
-        _patientName = InputValidator.Validator("Enter name of patient to remove: ", "name", "data");
-        _patientSurname = InputValidator.Validator("Enter surname of patient to remove: ", "surname", "data");
-
-        var patient = patients.Find(p => p.Name == _patientName && p.Surname == _patientSurname);
-        if (patient == null)
-        {
-            Console.WriteLine("Patient not found.");
-            return;
-        }
+        
+        PrintPatients();
+        
+        _patientId = InputValidator.Validator("Enter the patient's ID: ", "patient's ID", "ID");
+        
+        PatientClass patient = patients.Find(p => p.PatientId == _patientId) ?? new PatientClass();
+        
         PatientsArray.RemovePatient(patient);
+        ScheduleArray.RemoveScheduleRecord(_patientId);
         Console.Clear();
         Console.WriteLine("Patient removed successfully.");
     }

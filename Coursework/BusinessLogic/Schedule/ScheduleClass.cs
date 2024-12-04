@@ -12,6 +12,8 @@ public class ScheduleClass
     public string PatientId { get => _patientId; set => _patientId = value; }
     public DateTime RecordDate { get => _recordDate; set => _recordDate = value; }
     
+    public ScheduleClass(){}
+    
     public ScheduleClass(string scheduleRecordId, string doctorId, string patientId, DateTime recordDate)
     {
         _scheduleRecordId = scheduleRecordId;

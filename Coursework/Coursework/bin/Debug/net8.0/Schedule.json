@@ -1,5 +1,5 @@
 {
-  "NumberOfScheduleRecords": 2,
+  "NumberOfScheduleRecords": 4,
   "Schedule": [
     {
       "ScheduleRecordId": "S001",
@@ -12,6 +12,18 @@
       "DoctorId": "D002",
       "PatientId": "P002",
       "RecordDate": "2023-11-01T10:30:00"
+    },
+    {
+      "ScheduleRecordId": "S003",
+      "DoctorId": "D013",
+      "PatientId": "P008",
+      "RecordDate": "2024-12-03T10:00:00"
+    },
+    {
+      "ScheduleRecordId": "S004",
+      "DoctorId": "D012",
+      "PatientId": "P007",
+      "RecordDate": "2024-12-03T09:30:00"
     }
   ]
 }
