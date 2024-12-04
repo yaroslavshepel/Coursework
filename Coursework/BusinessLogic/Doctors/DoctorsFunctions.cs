@@ -15,11 +15,9 @@ public class DoctorsFunctions
         _surname = InputValidator.Validator("Enter the doctor's surname: ", "surname", "data");
         _specialization = InputValidator.Validator("Enter the doctor's specialization: ", "specialization", "data");
         _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number", "phone number");
-        //string inputHour = "AAA";
-        while (true)
+        /*while (true)
         {
             string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30) or type 'STOP' to finish: ", "time", "hour");
-            //Console.WriteLine(inputHour);
             if (inputHour == "0")
             {
                 break;
@@ -28,23 +26,10 @@ public class DoctorsFunctions
             {
                 hours.Add(inputTime);
             }
-            /*string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30) or type 'STOP' to finish: ", "time", "data");
-            if (inputHour.ToUpper() == "STOP")
-            {
-                break;
-            }
-            if (DateTime.TryParse(inputHour, out DateTime inputTime))
-            {
-                hours.Add(inputTime);
-            }
-            else
-            {
-                Console.WriteLine("Invalid time format. Please try again.");
-            }*/
-        }
+        }*/
         
         //hours = DoctorClass.GenerateDefaultAvailableHours();
-        
+        hours = DoctorClass.GenerateDefaultAvailableHours();
         DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, hours);
         //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
         //DoctorsArray.NumberOfDoctors++;

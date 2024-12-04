@@ -18,5 +18,5 @@ public class PatientsData
 public class ScheduleData
 {
     public int NumberOfScheduleRecords { get; set; }
-    public List<ScheduleClass> ScheduleRecords = new List<ScheduleClass>();
+    public List<ScheduleClass> Schedule { get; set; } = new List<ScheduleClass>();
 }

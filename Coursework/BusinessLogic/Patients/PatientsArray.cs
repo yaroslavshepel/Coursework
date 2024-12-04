@@ -16,8 +16,12 @@ public class PatientsArray
         string patientId = _patients.Last().PatientId;
         string patientIdTrimmed = patientId.Trim('P');
         int patientIdNumber = int.Parse(patientIdTrimmed);
-        string newPatientId = $"P{patientIdNumber + 1}";
-        
+        int anotherNum = 00;
+        if (patientIdNumber >= 10)
+        {
+            anotherNum = 0;
+        }
+        string newPatientId = $"P{anotherNum}{patientIdNumber + 1}";
         _patients.Add(new PatientClass(newPatientId, name, surname, address, phoneNumber, email, medicalRecord));
         _numberOfPatients++;
     }

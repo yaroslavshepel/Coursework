@@ -50,9 +50,9 @@ public class WorkWithFiles
                 {
                     ScheduleArray.NumberOfScheduleRecords = loadedSchedule.NumberOfScheduleRecords;
                     ScheduleArray.Schedule.Clear();
-                    foreach (var record in loadedSchedule.ScheduleRecords)
+                    for (int i = 0; i < ScheduleArray.NumberOfScheduleRecords; i++)
                     {
-                        ScheduleArray.Schedule.Add(record);
+                        ScheduleArray.Schedule.Add(loadedSchedule.Schedule[i]);
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class WorkWithFiles
             
             //! Write schedule to file
             var scheduleToWrite = new List<ScheduleClass>(ScheduleArray.Schedule);
-            var newScheduleData = new ScheduleData { NumberOfScheduleRecords = ScheduleArray.NumberOfScheduleRecords, ScheduleRecords = scheduleToWrite };
+            var newScheduleData = new ScheduleData { NumberOfScheduleRecords = ScheduleArray.NumberOfScheduleRecords, Schedule = scheduleToWrite };
             await using (FileStream fs = new FileStream("Schedule.json", FileMode.Create))
             { await JsonSerializer.SerializeAsync(fs, newScheduleData, Options); }
         }

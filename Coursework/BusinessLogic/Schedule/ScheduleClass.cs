@@ -2,26 +2,30 @@
 
 public class ScheduleClass
 {
+    private string _scheduleRecordId = "";
     private string _doctorId = "";
     private string _patientId = "";
-    private DateTime _Scheduledate;
+    private DateTime _recordDate;
     
+    public string ScheduleRecordId { get => _scheduleRecordId; set => _scheduleRecordId = value; }
     public string DoctorId { get => _doctorId; set => _doctorId = value; }
     public string PatientId { get => _patientId; set => _patientId = value; }
-    public DateTime Date { get => _Scheduledate; set => _Scheduledate = value; }
+    public DateTime RecordDate { get => _recordDate; set => _recordDate = value; }
     
-    public ScheduleClass(string doctorId, string patientId, DateTime scheduleDate)
+    public ScheduleClass(string scheduleRecordId, string doctorId, string patientId, DateTime recordDate)
     {
-        DoctorId = doctorId;
-        PatientId = patientId;
-        Date = scheduleDate;
+        _scheduleRecordId = scheduleRecordId;
+        _doctorId = doctorId;
+        _patientId = patientId;
+        _recordDate = recordDate;
     }
     
-    public ScheduleClass EditSchedule(string doctorId, string patientId, DateTime scheduleDate)
+    public ScheduleClass EditScheduleRecord(string scheduleId, string doctorId, string patientId, DateTime scheduleDate)
     {
-        DoctorId = doctorId;
-        PatientId = patientId;
-        Date = scheduleDate;
-        return new ScheduleClass(doctorId, patientId, scheduleDate);
+        _scheduleRecordId = scheduleId;
+        _doctorId = doctorId;
+        _patientId = patientId;
+        _recordDate = scheduleDate;
+        return new ScheduleClass(scheduleId, doctorId, patientId, scheduleDate);
     }
 }

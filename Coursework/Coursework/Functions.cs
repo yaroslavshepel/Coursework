@@ -1,4 +1,6 @@
-﻿namespace Coursework;
+﻿using BusinessLogic.Schedule;
+
+namespace Coursework;
 using BusinessLogic;
 using BusinessLogic.Doctors;
 using BusinessLogic.Patients;
@@ -125,7 +127,7 @@ public class Functions
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
                     Console.Clear();
-                    // MakeAppointment();
+                    ScheduleFunctions.PrintSchedule();
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:
