@@ -1,7 +1,6 @@
 ﻿namespace BusinessLogic;
 using Doctors;
 using Patients;
-using Schedule;
 
 public class Search
 {
@@ -14,13 +13,13 @@ public class Search
     
     public static void SearchPatient()
     {
-        _patientName = InputValidator.Validator("Enter patient's name: ", "name", "name");
-        _patientSurname = InputValidator.Validator("Enter patient's surname: ", "surname", "surname");
+        _patientName = InputValidator.Validator("Enter patient's name: ", "name", "data");
+        _patientSurname = InputValidator.Validator("Enter patient's surname: ", "surname", "data");
 
         var patient = PatientsArray.FindPatientByName(_patientName, _patientSurname);
         if (patient != null)
         {
-            Console.WriteLine($"Patient found: {patient.Name} {patient.Surname}, ID: {patient.PatientId}");
+            Console.WriteLine($"Patient found: ID: {patient.PatientId}, {patient.Name} {patient.Surname}, Diagnosis: {patient.MedicalRecord.Diagnosis}");
         }
         else
         {
@@ -30,8 +29,8 @@ public class Search
 
     public static void SearchDoctor()
     {
-        _doctorName = InputValidator.Validator("Enter doctor's name: ", "name", "name");
-        _doctorSurname = InputValidator.Validator("Enter doctor's surname: ", "surname", "surname");
+        _doctorName = InputValidator.Validator("Enter doctor's name: ", "name", "data");
+        _doctorSurname = InputValidator.Validator("Enter doctor's surname: ", "surname", "data");
         
         var doctor = DoctorsArray.FindDoctorByName(_doctorName, _doctorSurname);
         
@@ -47,22 +46,30 @@ public class Search
 
     public static void GetDoctorSchedule()
     {
-        _doctorId = InputValidator.Validator("Enter doctor's ID: ", "ID", "doctor ID");
+        _doctorId = InputValidator.Validator("Enter doctor's ID: ", "ID", "ID");
         _date = InputValidator.ValidatorDate("Enter the date (e.g., 2024-12-31): ", "date");
         
-        var schedule = ScheduleArray.GetDoctorSchedule(_doctorId, _date);
+        var doctor = DoctorsArray.Doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
+        var availableHours = doctor.AvailableHours.FindAll(h => h.Date == _date);
         
-        if (schedule.Any())
+        if (availableHours.Count != 0)
         {
-            Console.WriteLine($"Schedule for Doctor ID {_doctorId} on {_date.ToShortDateString()}:");
-            foreach (var record in schedule)
+            Console.Clear();
+            Console.WriteLine($"Doctor {doctor.Name} {doctor.Surname} is available at:");
+            
+            foreach (var hour in doctor.AvailableHours)
             {
-                Console.WriteLine($"Patient ID: {record.PatientId}, Date: {record.RecordDate}");
+                if (hour.Date == _date)
+                {
+                    Console.WriteLine(hour.TimeOfDay);
+                }
             }
         }
         else
         {
-            Console.WriteLine("No schedule found for the specified date.");
+            Console.Clear();
+            Console.WriteLine("No available hours found.");
         }
+        
     }
 }

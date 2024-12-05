@@ -50,9 +50,4 @@ public class ScheduleArray
         Schedule.Remove(schedule);
         _numberOfScheduleRecords--;
     }
-    
-    public static List<ScheduleClass> GetDoctorSchedule(string doctorId, DateTime date)
-    {
-        return _schedule.Where(s => s.DoctorId == doctorId && s.RecordDate.Date == date.Date).ToList();
-    }
 }
