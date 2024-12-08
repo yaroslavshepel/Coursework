@@ -16,24 +16,8 @@ public class DoctorsFunctions
         _surname = InputValidator.Validator("Enter the doctor's surname: ", "surname", "data");
         _specialization = InputValidator.Validator("Enter the doctor's specialization: ", "specialization", "data");
         _phoneNumber = InputValidator.Validator("Enter the doctor's phone number: ", "phone number", "phone number");
-        /*while (true)
-        {
-            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2023-12-31 14:30) or type 'STOP' to finish: ", "time", "hour");
-            if (inputHour == "0")
-            {
-                break;
-            }
-            else if (DateTime.TryParse(inputHour, out DateTime inputTime))
-            {
-                hours.Add(inputTime);
-            }
-        }*/
-        
-        //hours = DoctorClass.GenerateDefaultAvailableHours();
         _hours = DoctorClass.GenerateDefaultAvailableHours();
         DoctorsArray.AddDoctor(_name, _surname, _specialization, _phoneNumber, _hours);
-        //DoctorsArray.SetNumberOfDoctors(DoctorsArray.GetNumberOfDoctors() + 1);
-        //DoctorsArray.NumberOfDoctors++;
         Console.WriteLine("Doctor added successfully.");
         return Task.CompletedTask;
     }
@@ -77,6 +61,7 @@ public class DoctorsFunctions
     
     public static void PrintDoctors(string request)
     {
+        Console.ForegroundColor = ConsoleColor.Blue; 
         var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("There are no doctors in the system."); return; }
         switch (request)
@@ -95,13 +80,15 @@ public class DoctorsFunctions
             }
             case "IDs and specializations":
             {
+                
                 for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
                 {
                     Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
-                                      $"Specialization: {doctors[i].Specialization}");
+                                      $"Specialization: {doctors[i].Specialization}", Console.ForegroundColor);
                 }
                 break;
             }
         }
+        Console.ResetColor();
     }
 }

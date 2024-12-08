@@ -2,8 +2,8 @@
 using Doctors;
 using Patients;
 using Schedule;
-
-public class DoctorsData
+// All Classes in this file are used to store data from JSON files before these data are added to the arrays in the main program.
+public class DoctorsData 
 {
     public int NumberOfDoctors { get; set; }
     public List<DoctorClass> Doctors { get; set; } = new List<DoctorClass>();

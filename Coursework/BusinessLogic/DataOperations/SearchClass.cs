@@ -1,8 +1,8 @@
-﻿namespace BusinessLogic;
+﻿namespace BusinessLogic.DataOperations;
 using Doctors;
 using Patients;
 
-public class Search
+public class SearchClass
 {
     private static string _doctorId = "";
     private static string _doctorName = "";
@@ -70,6 +70,5 @@ public class Search
             Console.Clear();
             Console.WriteLine("No available hours found.");
         }
-        
     }
 }

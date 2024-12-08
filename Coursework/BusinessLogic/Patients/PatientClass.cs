@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.MedicalRecords;
+using System.Globalization;
 
 namespace BusinessLogic.Patients;
 
@@ -43,8 +44,16 @@ public class PatientClass
         _medicalRecord = medicalRecord;
     }
 
-    public override string ToString()
+    
+}
+public class PatientSurnameComparer : IComparer<PatientClass>
+{
+    
+    public int Compare(PatientClass? x, PatientClass? y)
     {
-        return $"Name: {Name}, Surname: {Surname}, Address: {Address}, Phone Number: {PhoneNumber}, Email: {Email}, Medical Record: {MedicalRecord}";
+        if (x == null && y == null) return 0;
+        if (x == null) return -1;
+        if (y == null) return 1;
+        return string.Compare(x.Surname, y.Surname, CultureInfo.InvariantCulture, CompareOptions.None);
     }
 }

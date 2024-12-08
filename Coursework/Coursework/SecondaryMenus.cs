@@ -1,11 +1,11 @@
-﻿
-namespace Coursework;
+﻿namespace Coursework;
 using BusinessLogic;
 using BusinessLogic.Doctors;
 using BusinessLogic.Patients;
 using BusinessLogic.Schedule;   
+using BusinessLogic.DataOperations;
 
-public class Functions
+public class SecondaryMenus
 {
     protected static async Task ManagementOfDoctors()
     {
@@ -156,17 +156,17 @@ public class Functions
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
                     Console.Clear();
-                    BusinessLogic.Search.SearchPatient();
+                    SearchClass.SearchPatient();
                     break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
                     Console.Clear();
-                    BusinessLogic.Search.SearchDoctor();
+                    SearchClass.SearchDoctor();
                     break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
                     Console.Clear();
-                    BusinessLogic.Search.GetDoctorSchedule();
+                    SearchClass.GetDoctorSchedule();
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:

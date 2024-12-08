@@ -1,7 +1,7 @@
 ﻿namespace Coursework;
 using BusinessLogic;
 
-class Program : Functions
+class Program : SecondaryMenus
 {
     public static async Task Main()
     {
