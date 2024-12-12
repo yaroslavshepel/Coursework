@@ -29,12 +29,12 @@ public static class InputValidator
                     }
                     else
                     {
-                        return _input;
+                        string firstLetter = _input.Substring(0, 1).ToUpper();
+                        return firstLetter + _input.Substring(1);
                     }
-
                     break;
                 case "phone number":
-                    if (!Regex.IsMatch(_input, @"^(\+[0-9]{1,3})?[0-9]{9,10}$") || string.IsNullOrEmpty(_input))
+                    if (!Regex.IsMatch(_input, @"^(\+[0-9]{1,3})?[0-9]{10}$") || string.IsNullOrEmpty(_input))
                     {
                         WrongInput(whatIsAsked);
                     }
@@ -54,15 +54,15 @@ public static class InputValidator
                     {
                         return _input;
                     }
-
                     break;
                 case "ID":
-                    if (!Regex.IsMatch(_input, @"^[DP][0-9]+$") || string.IsNullOrEmpty(_input))
+                    if (!Regex.IsMatch(_input, @"^[DPdp][0-9]+$") || string.IsNullOrEmpty(_input))
                     {
                         WrongInput(whatIsAsked);
                     }
                     else
                     {
+                        _input = _input.Substring(0, 1).ToUpper() + _input.Substring(1);
                         if (DoctorsArray.Doctors.Find(d => d.DoctorId == _input) == null && 
                             PatientsArray.Patients.Find(p => p.PatientId == _input) == null)
                         {
@@ -73,7 +73,6 @@ public static class InputValidator
                             return _input;
                         }
                     }
-
                     break;
                 case "hour":
                     if (_input == "STOP")
@@ -107,13 +106,13 @@ public static class InputValidator
         _input = Console.ReadLine() ?? string.Empty;
         while (true)
         {
-            if (DateTime.TryParse(_input, out DateTime inputDate))
+            if (!DateTime.TryParse(_input, out DateTime inputDate))
             {
-                return inputDate;
+                WrongInput(typeOfRequest);
             }
             else
             {
-                WrongInput(typeOfRequest);
+                return inputDate;
             }
         }
     }
@@ -123,6 +122,4 @@ public static class InputValidator
          Console.WriteLine($"Please enter a valid {reason}.");
          _input = Console.ReadLine() ?? string.Empty;
      }
-
-     
 }

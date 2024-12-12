@@ -49,7 +49,7 @@ public class DoctorsFunctions
             return;
         }
 
-        PrintDoctors("all");
+        PrintDoctors("ID, name and surname");
         
         _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
         DoctorClass doctor = doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
@@ -80,11 +80,20 @@ public class DoctorsFunctions
             }
             case "IDs and specializations":
             {
-                
                 for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
                 {
                     Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
                                       $"Specialization: {doctors[i].Specialization}", Console.ForegroundColor);
+                }
+                break;
+            }
+            case "ID, name and surname":
+            {
+                for(int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
+                {
+                    Console.WriteLine($"ID: {doctors[i].DoctorId}, " +
+                                      $"Name: {doctors[i].Name}, " +
+                                      $"Surname: {doctors[i].Surname}", Console.ForegroundColor);
                 }
                 break;
             }

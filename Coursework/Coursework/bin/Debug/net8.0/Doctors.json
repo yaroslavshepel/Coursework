@@ -1,12 +1,12 @@
 {
-  "NumberOfDoctors": 15,
+  "NumberOfDoctors": 14,
   "Doctors": [
     {
       "DoctorId": "D001",
       "Name": "John",
       "Surname": "Smith",
       "Specialization": "Cardiology",
-      "PhoneNumber": "\u002B1234567890",
+      "PhoneNumber": "0123456789",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -23,7 +23,7 @@
       "Name": "Jane",
       "Surname": "Doe",
       "Specialization": "Neurology",
-      "PhoneNumber": "\u002B0987654321",
+      "PhoneNumber": "0987654321",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -40,7 +40,7 @@
       "Name": "Alice",
       "Surname": "Johnson",
       "Specialization": "Pediatrics",
-      "PhoneNumber": "\u002B1122334455",
+      "PhoneNumber": "0122334455",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -57,7 +57,7 @@
       "Name": "Bob",
       "Surname": "Brown",
       "Specialization": "Dermatology",
-      "PhoneNumber": "\u002B2233445566",
+      "PhoneNumber": "0233445566",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -74,7 +74,7 @@
       "Name": "Charlie",
       "Surname": "Davis",
       "Specialization": "Orthopedics",
-      "PhoneNumber": "\u002B3344556677",
+      "PhoneNumber": "0344556677",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -91,7 +91,7 @@
       "Name": "David",
       "Surname": "Evans",
       "Specialization": "Gastroenterology",
-      "PhoneNumber": "\u002B4455667788",
+      "PhoneNumber": "0455667788",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -108,7 +108,7 @@
       "Name": "Eve",
       "Surname": "Garcia",
       "Specialization": "Oncology",
-      "PhoneNumber": "\u002B5566778899",
+      "PhoneNumber": "0566778899",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -125,7 +125,7 @@
       "Name": "Frank",
       "Surname": "Harris",
       "Specialization": "Urology",
-      "PhoneNumber": "\u002B6677889900",
+      "PhoneNumber": "0677889900",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -142,7 +142,7 @@
       "Name": "Grace",
       "Surname": "Jackson",
       "Specialization": "Ophthalmology",
-      "PhoneNumber": "\u002B7788990011",
+      "PhoneNumber": "0569854696",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -159,7 +159,7 @@
       "Name": "Hannah",
       "Surname": "King",
       "Specialization": "Psychiatry",
-      "PhoneNumber": "\u002B8899001122",
+      "PhoneNumber": "0874569580",
       "AvailableHours": [
         "2023-12-01T08:00:00",
         "2023-12-01T08:30:00",
@@ -176,7 +176,7 @@
       "Name": "John",
       "Surname": "Price",
       "Specialization": "Surgery",
-      "PhoneNumber": "0988567456",
+      "PhoneNumber": "0658569856",
       "AvailableHours": [
         "2024-12-03T08:00:00+02:00",
         "2024-12-03T08:30:00+02:00",
@@ -190,46 +190,29 @@
     },
     {
       "DoctorId": "D012",
-      "Name": "dvdsv",
-      "Surname": "sdvdd",
-      "Specialization": "dsvdvs",
+      "Name": "Dvdsv",
+      "Surname": "Sdvdd",
+      "Specialization": "Dsvdvs",
       "PhoneNumber": "0989889281",
       "AvailableHours": []
     },
     {
       "DoctorId": "D013",
-      "Name": "vsdv",
-      "Surname": "vsdv",
-      "Specialization": "bsbbb",
+      "Name": "Vsdv",
+      "Surname": "Vsdv",
+      "Specialization": "Bsbbb",
       "PhoneNumber": "0989889281",
       "AvailableHours": []
     },
     {
       "DoctorId": "D014",
-      "Name": "dsvsg",
-      "Surname": "gwegw",
-      "Specialization": "wegwg",
+      "Name": "Dsvsg",
+      "Surname": "Gwegw",
+      "Specialization": "Wegwg",
       "PhoneNumber": "0879895684",
       "AvailableHours": [
         "2024-01-01T09:00:00",
         "2024-12-04T11:30:00"
-      ]
-    },
-    {
-      "DoctorId": "D015",
-      "Name": "wefwe",
-      "Surname": "fewfw",
-      "Specialization": "gwgwg",
-      "PhoneNumber": "0988567895",
-      "AvailableHours": [
-        "2024-12-04T08:00:00+02:00",
-        "2024-12-04T08:30:00+02:00",
-        "2024-12-04T09:00:00+02:00",
-        "2024-12-04T09:30:00+02:00",
-        "2024-12-04T10:00:00+02:00",
-        "2024-12-04T10:30:00+02:00",
-        "2024-12-04T11:00:00+02:00",
-        "2024-12-04T11:30:00+02:00"
       ]
     }
   ]

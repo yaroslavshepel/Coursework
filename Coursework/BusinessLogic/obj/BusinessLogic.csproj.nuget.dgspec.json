@@ -13,7 +13,6 @@
         "packagesPath": "C:\\Users\\arosl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\arosl\\Documents\\GitHub\\Coursework\\Coursework\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
@@ -44,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "all"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {

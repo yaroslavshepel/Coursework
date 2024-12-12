@@ -6,7 +6,7 @@
       "Name": "John",
       "Surname": "Doe",
       "Address": "123 Main St",
-      "PhoneNumber": "555-1234",
+      "PhoneNumber": "0874562897",
       "Email": "john.doe@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-01T00:00:00",
@@ -21,7 +21,7 @@
       "Name": "Jane",
       "Surname": "Smith",
       "Address": "456 Elm St",
-      "PhoneNumber": "555-5678",
+      "PhoneNumber": "0745622031",
       "Email": "jane.smith@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-02T00:00:00",
@@ -36,7 +36,7 @@
       "Name": "Alice",
       "Surname": "Johnson",
       "Address": "789 Oak St",
-      "PhoneNumber": "555-8765",
+      "PhoneNumber": "0569851235",
       "Email": "alice.johnson@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-03T00:00:00",
@@ -51,7 +51,7 @@
       "Name": "Bob",
       "Surname": "Brown",
       "Address": "321 Pine St",
-      "PhoneNumber": "555-4321",
+      "PhoneNumber": "0456988753",
       "Email": "bob.brown@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-04T00:00:00",
@@ -66,7 +66,7 @@
       "Name": "Charlie",
       "Surname": "Davis",
       "Address": "654 Maple St",
-      "PhoneNumber": "555-6789",
+      "PhoneNumber": "0953201258",
       "Email": "charlie.davis@example.com",
       "MedicalRecord": {
         "RecordCreationDate": "2023-10-05T00:00:00",
@@ -78,9 +78,9 @@
     },
     {
       "PatientId": "P006",
-      "Name": "rqr",
-      "Surname": "fwe",
-      "Address": "gwew",
+      "Name": "Rqr",
+      "Surname": "Fwe",
+      "Address": "Gwew",
       "PhoneNumber": "0988562405",
       "Email": "few@gm.com",
       "MedicalRecord": {
@@ -108,9 +108,9 @@
     },
     {
       "PatientId": "P008",
-      "Name": "wefw",
-      "Surname": "fwef",
-      "Address": "we",
+      "Name": "Wefw",
+      "Surname": "Fwef",
+      "Address": "Wwe",
       "PhoneNumber": "0988568798",
       "Email": "qeq@fwf.cod",
       "MedicalRecord": {
