@@ -12,18 +12,16 @@ public class ScheduleFunctions
     {
         var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("No doctors found."); return Task.CompletedTask; }
-        for (int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
-        {
-            Console.WriteLine($"Doctor ID: {doctors[i].DoctorId}, " +
-                              $"Doctor's Surname: {doctors[i].Surname}, " +
-                              $"Specialization: {doctors[i].Specialization}");
-        }
+        
+        DoctorsFunctions.PrintDoctors("IDs, Surname and specializations");
         
         _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
         DoctorClass doctor = doctors.Find(d => d.DoctorId == _doctorId) ?? throw new CustomException("Doctor not found.");
+        doctor.AvailableHours.Clear();
         while (true)
         {
-            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2024-12-31 14:30) or type 'STOP' to finish: ", "time", "hour");
+            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 2024-12-31 14:30) or " +
+                                                        "type 'STOP' to finish: ", "time", "hour");
             if (inputHour == "0")
             {
                 break;
@@ -31,11 +29,10 @@ public class ScheduleFunctions
             else if (DateTime.TryParse(inputHour, out DateTime inputTime))
             {
                 _recordDate = inputTime;
+                doctor.AvailableHours.Add(_recordDate);
             }
         }
-        
-        doctor.AvailableHours.Clear();
-        doctor.AvailableHours.Add(_recordDate);
+        Console.WriteLine("Schedule added successfully.");
         return Task.CompletedTask;
     }
 
@@ -45,7 +42,7 @@ public class ScheduleFunctions
         if (doctors.Count == 0) { Console.WriteLine("No doctors found."); return; }
 
         PrintDoctorsSchedule();
-        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID");
+        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
         var doctor = doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
         
         while (true)
@@ -70,31 +67,26 @@ public class ScheduleFunctions
     {
         var doctors = DoctorsArray.Doctors;
         if (doctors.Count == 0) { Console.WriteLine("No doctors found."); return Task.CompletedTask; }
-        for (int i = 0; i < DoctorsArray.NumberOfDoctors; i++)
-        {
-            if (doctors[i].AvailableHours.Count > 0){
-                Console.WriteLine($"Doctor ID: {doctors[i].DoctorId}, " +
-                                  $"Sp: {doctors[i].Specialization}" +
-                                  $"Available hours: {doctors[i].GetAvailableHours()}");
-            }
-        }
+        
+        DoctorsFunctions.PrintDoctors("ID, Specialization and Available Hours");
+        
         _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
         var doctor = doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
         if (doctor.AvailableHours.Count == 0) { Console.WriteLine("Doctor has no available hours."); return Task.CompletedTask; }
         var patients = PatientsArray.Patients;
         if (patients.Count == 0) { Console.WriteLine("No patients found."); return Task.CompletedTask; }
-        for (int i = 0; i < PatientsArray.NumberOfPatients; i++)
-        {
-            Console.WriteLine($"Patient ID: {patients[i].PatientId}, " +
-                              $"Diagnosis: {patients[i].MedicalRecord.Diagnosis}");
-        }
+        
+        PatientFunctions.PrintPatients("ID and Diagnosis");
         
         _patientId = InputValidator.Validator("Enter the patient's ID: ", "ID", "ID");
-        
+        Console.ForegroundColor = ConsoleColor.Blue;
         while (true)
         {
-            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 31.12.2024 14:30): ", "time", "hour");
-        
+            Console.WriteLine("\nDoctor's available hours:\n" + doctor.GetAvailableHours(), Console.ForegroundColor);
+            Console.ResetColor();
+            string inputHour = InputValidator.Validator("Enter a date and time (e.g., 31.12.2024 14:30): ", 
+            "time", "hour");
+            
             if (DateTime.TryParse(inputHour, out DateTime inputTime))
             {
                 _recordDate = inputTime;
@@ -132,6 +124,7 @@ public class ScheduleFunctions
                               $"Patient's Surname: {PatientsArray.Patients.Find(p => p.PatientId == schedule[i].PatientId)?.Surname}, " +
                               $"Date: {schedule[i].RecordDate}\n" + schedule[i].ScheduleRecordId, Console.ForegroundColor);
         }
+        Console.WriteLine();
         Console.ResetColor();
     }
     
@@ -146,6 +139,7 @@ public class ScheduleFunctions
                               $"Doctor's Surname: {doctors[i].Surname}\n" +
                               $"Schedule:\n{doctors[i].GetAvailableHours()}", Console.ForegroundColor);
         }
+        Console.WriteLine();
         Console.ResetColor();
     }
 }

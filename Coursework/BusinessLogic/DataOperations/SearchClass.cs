@@ -19,7 +19,12 @@ public class SearchClass
         var patient = PatientsArray.FindPatientByName(_patientName, _patientSurname);
         if (patient != null)
         {
-            Console.WriteLine($"Patient found: ID: {patient.PatientId}, {patient.Name} {patient.Surname}, Diagnosis: {patient.MedicalRecord.Diagnosis}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"Patient found: ID: {patient.PatientId}, " +
+                              $"{patient.Name} {patient.Surname}, " +
+                              $"Diagnosis: {patient.MedicalRecord.Diagnosis}", Console.ForegroundColor);
+            Console.ResetColor();
+            Console.WriteLine();
         }
         else
         {
@@ -36,7 +41,11 @@ public class SearchClass
         
         if (doctor != null)
         {
-            Console.WriteLine($"Doctor found: {doctor.Name} {doctor.Surname}, ID: {doctor.DoctorId}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"Doctor found: {doctor.Name} {doctor.Surname}, " +
+                              $"ID: {doctor.DoctorId}", Console.ForegroundColor);
+            Console.ResetColor();
+            Console.WriteLine();
         }
         else
         {
@@ -46,8 +55,9 @@ public class SearchClass
 
     public static void GetDoctorSchedule()
     {
-        _doctorId = InputValidator.Validator("Enter doctor's ID: ", "ID", "ID");
-        _date = InputValidator.ValidatorDate("Enter the date (e.g., 2024-12-31): ", "date");
+        DoctorsFunctions.PrintDoctors("IDs, Surname and specializations");
+        _doctorId = InputValidator.Validator("\nEnter doctor's ID: ", "ID", "ID");
+        _date = InputValidator.ValidatorDate("\nEnter the date (e.g., 2024-12-31): ", "date");
         
         var doctor = DoctorsArray.Doctors.Find(d => d.DoctorId == _doctorId) ?? new DoctorClass();
         var availableHours = doctor.AvailableHours.FindAll(h => h.Date == _date);
@@ -55,6 +65,7 @@ public class SearchClass
         if (availableHours.Count != 0)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Doctor {doctor.Name} {doctor.Surname} is available at:");
             
             foreach (var hour in doctor.AvailableHours)
@@ -64,6 +75,8 @@ public class SearchClass
                     Console.WriteLine(hour.TimeOfDay);
                 }
             }
+            Console.WriteLine();
+            Console.ResetColor();
         }
         else
         {

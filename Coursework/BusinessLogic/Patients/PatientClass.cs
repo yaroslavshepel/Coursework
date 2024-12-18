@@ -43,8 +43,6 @@ public class PatientClass
         _email = email;
         _medicalRecord = medicalRecord;
     }
-
-    
 }
 public class PatientSurnameComparer : IComparer<PatientClass>
 {

@@ -1,5 +1,5 @@
 {
-  "NumberOfPatients": 8,
+  "NumberOfPatients": 7,
   "Patients": [
     {
       "PatientId": "P001",
@@ -104,21 +104,6 @@
         "DoctorId": "D007",
         "Diagnosis": "Headache",
         "Treatment": "Rest"
-      }
-    },
-    {
-      "PatientId": "P008",
-      "Name": "Wefw",
-      "Surname": "Fwef",
-      "Address": "Wwe",
-      "PhoneNumber": "0988568798",
-      "Email": "qeq@fwf.cod",
-      "MedicalRecord": {
-        "RecordCreationDate": "2024-12-02T23:18:12.3142977+02:00",
-        "RecordId": "MR008",
-        "DoctorId": "D001",
-        "Diagnosis": "fwsfwe",
-        "Treatment": "fwefw"
       }
     }
   ]

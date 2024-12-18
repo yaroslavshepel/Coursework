@@ -2,8 +2,6 @@
 
 public static class ConsoleMenu
 {
-    public static string PrintLongThing() { return "------------------------------------------------------------"; }
-    
     public static string MainMenu()
     {
         return "1. Management of doctors\n" +
@@ -37,7 +35,7 @@ public static class ConsoleMenu
                "2. Make an appointment with a doctor\n" +
                "3. Edit a reception schedule\n" +
                "4. View all reception schedules\n" +
-               "5. View doctors' schedules\n" +
+               "5. View doctors' available hours\n" +
                "0. Back to main menu";
     }
     

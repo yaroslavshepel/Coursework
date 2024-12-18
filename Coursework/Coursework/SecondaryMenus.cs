@@ -35,7 +35,7 @@ public class SecondaryMenus
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
                     Console.Clear();
-                    DoctorsFunctions.PrintDoctors("all");
+                    DoctorsFunctions.PrintDoctors("task");
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:
@@ -79,7 +79,7 @@ public class SecondaryMenus
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
                     Console.Clear();
-                    PatientFunctions.PrintPatients();
+                    PatientFunctions.PrintPatients("Task");
                     break;
                 case ConsoleKey.NumPad0:
                 case ConsoleKey.D0:

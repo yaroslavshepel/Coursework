@@ -23,7 +23,7 @@ public static class InputValidator
             switch (typeOfRequest)
             {
                 case "data":
-                    if (!Regex.IsMatch(_input, @"^[a-zA-Z]+$") || string.IsNullOrEmpty(_input))
+                    if (!Regex.IsMatch(_input, @"^[a-zA-Z\s]+$") || string.IsNullOrEmpty(_input))
                     {
                         WrongInput(whatIsAsked);
                     }
@@ -33,6 +33,7 @@ public static class InputValidator
                         return firstLetter + _input.Substring(1);
                     }
                     break;
+                
                 case "phone number":
                     if (!Regex.IsMatch(_input, @"^(\+[0-9]{1,3})?[0-9]{10}$") || string.IsNullOrEmpty(_input))
                     {
@@ -42,8 +43,8 @@ public static class InputValidator
                     {
                         return _input;
                     }
-
                     break;
+                
                 case "email address":
                     if (!Regex.IsMatch(_input, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$") ||
                         string.IsNullOrEmpty(_input))
@@ -55,6 +56,7 @@ public static class InputValidator
                         return _input;
                     }
                     break;
+                
                 case "ID":
                     if (!Regex.IsMatch(_input, @"^[DPdp][0-9]+$") || string.IsNullOrEmpty(_input))
                     {
@@ -74,6 +76,7 @@ public static class InputValidator
                         }
                     }
                     break;
+                
                 case "hour":
                     if (_input == "STOP")
                     {
@@ -82,7 +85,7 @@ public static class InputValidator
                     if (!DateTime.TryParse(_input, out DateTime inputTime) ||
                         inputTime.TimeOfDay < TimeSpan.FromHours(8) ||
                         inputTime.TimeOfDay > TimeSpan.FromHours(12) ||
-                        (inputTime.Minute != 0 && inputTime.Minute != 30))
+                        (inputTime.Minute != 0 && inputTime.Minute != 30) || inputTime < DateTime.Now)
                     {
                         WrongInput(whatIsAsked);
                     }
@@ -92,6 +95,7 @@ public static class InputValidator
                     }
 
                     break;
+                
                 default:
                     Console.WriteLine($"Please enter a valid {typeOfRequest}.");
                     break;
@@ -117,9 +121,9 @@ public static class InputValidator
         }
     }
     
-         private static void WrongInput(string reason)
-     {
-         Console.WriteLine($"Please enter a valid {reason}.");
-         _input = Console.ReadLine() ?? string.Empty;
-     }
+    private static void WrongInput(string reason)
+    {
+        Console.WriteLine($"Please enter a valid {reason}.");
+        _input = Console.ReadLine() ?? string.Empty;
+    }
 }

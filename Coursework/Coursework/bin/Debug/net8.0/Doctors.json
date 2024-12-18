@@ -202,7 +202,10 @@
       "Surname": "Vsdv",
       "Specialization": "Bsbbb",
       "PhoneNumber": "0989889281",
-      "AvailableHours": []
+      "AvailableHours": [
+        "2024-12-19T08:00:00",
+        "2024-12-19T08:30:00"
+      ]
     },
     {
       "DoctorId": "D014",

@@ -19,16 +19,16 @@ public class PatientFunctions
     public static Task AddPatient()
     {
         Console.WriteLine("Adding a patient.");
+        
         _patientName = InputValidator.Validator("Enter the patient's name: ", "name", "data");
         _patientSurname = InputValidator.Validator("Enter the patient's surname: ", "surname", "data");
         _patientAddress = InputValidator.Validator("Enter the patient's address: ", "address", "data");
         _patientPhoneNumber = InputValidator.Validator("Enter the patient's phone number: ", "phone number", "phone number");
         _patientEmail = InputValidator.Validator("Enter the patient's email: ", "email", "email address");
-        
         _patientDiagnosis = InputValidator.Validator("Enter the patient's diagnosis: ", "diagnosis", "data");
-        DoctorsFunctions.PrintDoctors("IDs and specializations");
-        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID");
         
+        DoctorsFunctions.PrintDoctors("IDs, Surname and specializations");
+        _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "ID");
         _patientTreatment = InputValidator.Validator("Enter the patient's treatment: ", "treatment", "data");
         
         PatientsArray.AddPatient(_patientName, _patientSurname, _patientAddress, _patientPhoneNumber, _patientEmail, 
@@ -46,7 +46,7 @@ public class PatientFunctions
             Console.WriteLine("There are no patients in the system.");
             return;
         }
-        PrintPatients();
+        PrintPatients("task");
         
         _patientId = InputValidator.Validator("Enter the patient's ID: ", "ID", "ID");
 
@@ -61,7 +61,7 @@ public class PatientFunctions
         if (Console.ReadKey().Key != ConsoleKey.Enter)
         {
             var newDiagnosis = InputValidator.Validator("Enter the new diagnosis: ", "diagnosis", "data");
-            DoctorsFunctions.PrintDoctors("IDs and specializations");
+            DoctorsFunctions.PrintDoctors("IDs, Surname and specializations");
             _doctorId = InputValidator.Validator("Enter the doctor's ID: ", "ID", "doctor ID");
             var newTreatment = InputValidator.Validator("Enter the new treatment: ", "treatment", "data");
 
@@ -89,7 +89,7 @@ public class PatientFunctions
             return;
         }
         
-        PrintPatients();
+        PrintPatients("task");
         
         _patientId = InputValidator.Validator("Enter the patient's ID: ", "patient's ID", "ID");
         
@@ -101,20 +101,37 @@ public class PatientFunctions
         Console.WriteLine("Patient removed successfully.");
     }
 
-    public static void PrintPatients()
+    public static void PrintPatients(string request)
     {
         var patients = PatientsArray.Patients;
         if (patients.Count == 0) {Console.WriteLine("There are no patients in the system."); return;}
         Console.ForegroundColor = ConsoleColor.Blue; 
-        for(int i = 0; i < PatientsArray.NumberOfPatients; i++)
+        switch (request)
         {
-            Console.WriteLine($"ID: {patients[i].PatientId}, " +
-                              $"Name: {patients[i].Name}, " +
-                              $"Surname: {patients[i].Surname}, " +
-                              $"Address: {patients[i].Address}, " +
-                              $"Phone Number: {patients[i].PhoneNumber}, " +
-                              $"Email: {patients[i].Email}\n" +
-                              $"Medical Record: {patients[i].MedicalRecord.PrintRecord()}\n", Console.ForegroundColor);
+            case "Task":
+            {
+                for(int i = 0; i < PatientsArray.NumberOfPatients; i++)
+                {
+                    Console.WriteLine($"ID: {patients[i].PatientId}, " +
+                                      $"Name: {patients[i].Name}, " +
+                                      $"Surname: {patients[i].Surname}, " +
+                                      $"Address: {patients[i].Address}, " +
+                                      $"Phone Number: {patients[i].PhoneNumber}, " +
+                                      $"Email: {patients[i].Email}\n" +
+                                      $"Medical Record: {patients[i].MedicalRecord.PrintRecord()}\n", Console.ForegroundColor);
+                }
+                break;
+            }
+            case "ID and Diagnosis":
+            {
+                for(int i = 0; i < PatientsArray.NumberOfPatients; i++)
+                {
+                    Console.WriteLine($"ID: {patients[i].PatientId}, " +
+                                      $"Diagnosis: {patients[i].MedicalRecord.Diagnosis}", Console.ForegroundColor);
+                }
+                Console.WriteLine();
+                break;
+            }
         }
         Console.ResetColor();
     }
