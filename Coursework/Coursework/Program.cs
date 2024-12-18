@@ -9,7 +9,6 @@ class Program : SecondaryMenus
         await WorkWithFiles.ReadFiles();
         while (isStopped)
         {
-            
             Console.WriteLine(ConsoleMenu.MainMenu());
             var choice = Console.ReadKey().Key;
             Console.Clear();
